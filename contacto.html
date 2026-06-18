@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Soporte y Contacto | TechStore</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/animaciones.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+</head>
+<body>
+
+  <header>
+  <h1>El ADN de TechStore</h1>
+  
+  <nav aria-label="Navegación principal">
+    <menu>
+      <li><a href="index.html"><i class="fa-solid fa-house"></i> Inicio</a></li>
+      <li><a href="productos.html"><i class="fa-solid fa-box-open"></i> Catálogo</a></li>
+      <li><a href="carrito.html"><i class="fa-solid fa-cart-shopping"></i> Mi Carrito</a></li>
+      <li><a href="contacto.html"><i class="fa-solid fa-envelope"></i> Contacto</a></li>
+      <li><a href="acerca.html"><i class="fa-solid fa-building"></i> Quiénes Somos</a></li>
+      <li><a href="#"><i class="fa-solid fa-user"></i> Mi Perfil</a></li> 
+    </menu>
+  </nav>
+</header>
+
+  <main>
+    <p>Completa el siguiente formulario para crear un ticket de soporte oficial.</p>
+
+    <form action="#" method="post" enctype="multipart/form-data">
+      
+      <fieldset>
+        <legend>Tus Credenciales</legend>
+        
+        <label for="nombre-cliente">Nombre completo:</label><br>
+        <input type="text" id="nombre-cliente" name="nombre" placeholder="Juan Pérez" required autocomplete="name"><br><br>
+
+        <label for="email-cliente">Correo electrónico:</label><br>
+        <input type="email" id="email-cliente" name="email" placeholder="juan@ejemplo.com" required autocomplete="email"><br><br>
+
+        <label for="clave-seguridad">Crea un PIN temporal de seguridad:</label><br>
+        <input type="password" id="clave-seguridad" name="pin" minlength="4" maxlength="6" required><br><br>
+
+        <label for="tel-cliente">Teléfono móvil:</label><br>
+        <input type="tel" id="tel-cliente" name="telefono" placeholder="809-555-5555" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"><br><br>
+
+        <label for="edad-cliente">Edad:</label><br>
+        <input type="number" id="edad-cliente" name="edad" min="18" max="100" step="1">
+      </fieldset>
+
+      <br>
+
+      <fieldset>
+        <legend>Detalles de tu Solicitud</legend>
+
+        <p>Naturaleza del problema:</p>
+        <input type="radio" id="motivo-garantia" name="motivo" value="garantia" required>
+        <label for="motivo-garantia">Reclamo de Garantía</label><br>
+        <input type="radio" id="motivo-cotizacion" name="motivo" value="cotizacion">
+        <label for="motivo-cotizacion">Cotización Empresarial</label><br>
+        <input type="radio" id="motivo-duda" name="motivo" value="duda">
+        <label for="motivo-duda">Duda General</label><br><br>
+
+        <p>¿Sobre qué línea de productos nos escribes? (Marca todas las que apliquen):</p>
+        <input type="checkbox" id="linea-mac" name="linea" value="mac">
+        <label for="linea-mac">Ecosistema Apple</label><br>
+        <input type="checkbox" id="linea-pc" name="linea" value="pc">
+        <label for="linea-pc">PC Master Race</label><br><br>
+
+        <label for="fecha-incidente">¿Cuándo ocurrió el problema / compra?</label><br>
+        <input type="date" id="fecha-incidente" name="fecha"><br><br>
+
+        <label for="cita-tecnica">Si requieres visita técnica, agenda aquí:</label><br>
+        <input type="datetime-local" id="cita-tecnica" name="cita"><br><br>
+
+        <label for="archivo-factura">Adjunta tu factura o imagen del fallo (PDF/JPG):</label><br>
+        <input type="file" id="archivo-factura" name="archivo" multiple accept=".pdf, .jpg, .png"><br><br>
+
+        <label for="url-referencia">URL de referencia (si viste el producto en otro lado):</label><br>
+        <input type="url" id="url-referencia" name="url" placeholder="https://..."><br><br>
+
+        <label for="presupuesto-rango">Tu presupuesto estimado (Mueve la barra):</label><br>
+        <input type="range" id="presupuesto-rango" name="presupuesto" min="100" max="10000" step="100"><br><br>
+
+        <label for="color-tema">Personaliza el color de tu ticket:</label><br>
+        <input type="color" id="color-tema" name="color_ticket" value="#0055ff"><br><br>
+
+        <input type="hidden" id="origen-tracker" name="origen" value="formulario_web_2026">
+        
+        <label for="ticket-id">ID de Ticket Generado Automáticamente:</label><br>
+        <input type="text" id="ticket-id" name="ticket" value="TCK-99882" readonly disabled>
+      </fieldset>
+
+      <br>
+      
+      <button type="submit">Enviar Ticket Oficial</button>
+      <button type="reset">Limpiar Formulario</button>
+
+    </form>
+  </main>
+
+  <hr>
+  <footer>
+    <address>Av. San Vicente, Santo Domingo Este, RD.</address>
+    <small>© 2026 TechStore Online.</small>
+  </footer>
+
+</body>
+</html>

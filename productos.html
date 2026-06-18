@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catálogo Completo | TechStore Online</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/animaciones.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+</head>
+<body>
+
+  <header>
+  <h1>El ADN de TechStore</h1>
+  
+  <nav aria-label="Navegación principal">
+    <menu>
+      <li><a href="index.html"><i class="fa-solid fa-house"></i> Inicio</a></li>
+      <li><a href="productos.html"><i class="fa-solid fa-box-open"></i> Catálogo</a></li>
+      <li><a href="carrito.html"><i class="fa-solid fa-cart-shopping"></i> Mi Carrito</a></li>
+      <li><a href="contacto.html"><i class="fa-solid fa-envelope"></i> Contacto</a></li>
+      <li><a href="acerca.html"><i class="fa-solid fa-building"></i> Quiénes Somos</a></li>
+      <li><a href="#"><i class="fa-solid fa-user"></i> Mi Perfil</a></li> 
+    </menu>
+  </nav>
+</header>
+
+  <main>
+    <aside aria-label="Panel de Filtros">
+      <h2>Filtros Avanzados</h2>
+      <form action="#" method="get">
+        
+        <fieldset>
+          <legend>Filtrar por Rango de Precio</legend>
+          <div style="display: flex; gap: 10px; align-items: center;">
+            <div style="width: 50%;">
+              <label for="precio-min">Desde ($):</label>
+              <input type="number" id="precio-min" name="min" min="0" step="50" placeholder="0">
+            </div>
+            <div style="width: 50%;">
+              <label for="precio-max">Hasta ($):</label>
+              <input type="number" id="precio-max" name="max" max="5000" step="50" placeholder="5000">
+            </div>
+          </div>
+        </fieldset>
+
+        <br>
+
+        <fieldset>
+          <legend>Filtrar por Marca</legend>
+          <input type="checkbox" id="marca-apple" name="marca" value="apple">
+          <label for="marca-apple">Apple</label><br>
+          
+          <input type="checkbox" id="marca-asus" name="marca" value="asus">
+          <label for="marca-asus">Asus</label><br>
+          
+          <input type="checkbox" id="marca-samsung" name="marca" value="samsung">
+          <label for="marca-samsung">Samsung</label><br>
+          
+          <input type="checkbox" id="marca-logitech" name="marca" value="logitech">
+          <label for="marca-logitech">Logitech</label>
+        </fieldset>
+
+        <br>
+
+        <fieldset>
+          <legend>Filtrar por Categoría</legend>
+          <input type="radio" id="cat-laptop" name="categoria" value="laptops">
+          <label for="cat-laptop">Laptops</label><br>
+          
+          <input type="radio" id="cat-perifericos" name="categoria" value="perifericos">
+          <label for="cat-perifericos">Periféricos</label><br>
+          
+          <input type="radio" id="cat-audio" name="categoria" value="audio">
+          <label for="cat-audio">Audio y Sonido</label>
+        </fieldset>
+
+        <br>
+
+        <fieldset>
+          <legend>Color del Dispositivo</legend>
+          <label for="color-dispositivo">Seleccione:</label>
+          <select id="color-dispositivo" name="color">
+            <option value="">Cualquiera</option>
+            <option value="negro">Negro Mate</option>
+            <option value="blanco">Blanco Hielo</option>
+            <option value="plata">Plata Espacial</option>
+          </select>
+        </fieldset>
+
+        <br>
+
+        <fieldset>
+          <legend>Búsqueda Específica</legend>
+          <label for="buscador-datalist">Modelo exacto:</label>
+          <input list="modelos" id="buscador-datalist" name="modelo" placeholder="Empieza a escribir...">
+          <datalist id="modelos">
+            <option value="MacBook Pro M3"></option>
+            <option value="Asus ROG Zephyrus"></option>
+            <option value="Logitech G Pro X"></option>
+            <option value="AirPods Pro 2"></option>
+          </datalist>
+        </fieldset>
+
+        <br>
+        <button type="submit">Aplicar Filtros</button>
+        <button type="reset">Borrar Selección</button>
+      </form>
+    </aside>
+
+    <hr>
+
+    <section aria-label="Resultados del catálogo">
+      <h2>Resultados (8)</h2>
+      
+      <dl>
+        <dt><strong>1. MacBook Pro 16" M3 Max</strong></dt>
+        <dd>
+          <img src="img/macbook.jpg" alt="MacBook Pro M3" width="150" height="100"><br>
+          La bestia de Apple para profesionales creativos.<br>
+          Precio: $3,499 <br><br>
+          <a href="producto.html" class="btn-blanco" style="font-size: 0.9rem; padding: 8px;">Ver Detalles Completos</a>
+          <a href="carrito.html" class="btn-blanco" style="font-size: 0.9rem; padding: 8px;">Añadir</a>
+        </dd>
+
+        <br><hr style="border: 0; border-top: 1px solid var(--color-borde); margin: 15px 0;"><br>
+
+        <dt><strong>2. Asus ROG Zephyrus G14</strong></dt>
+        <dd>
+          <img src="img/zephyrus.jpg" alt="Asus Zephyrus" width="150" height="100"><br>
+          Compacta, ligera y brutalmente potente.<br>
+          Precio: $1,699 <br><br>
+          <a href="producto.html" class="btn-blanco" style="font-size: 0.9rem; padding: 8px;">Ver Detalles Completos</a>
+          <a href="carrito.html" class="btn-blanco" style="font-size: 0.9rem; padding: 8px;">Añadir</a>
+        </dd>
+        
+        <br><hr style="border: 0; border-top: 1px solid var(--color-borde); margin: 15px 0;"><br>
+
+        <dt><strong>3. Logitech G Pro X Superlight</strong></dt>
+        <dd>
+          <img src="img/superlight.jpg" alt="Mouse G Pro" width="150" height="100"><br>
+          Menos de 63 gramos de peso, precisión extrema.<br>
+          Precio: $150 <br><br>
+          <a href="producto.html" class="btn-blanco" style="font-size: 0.9rem; padding: 8px;">Ver Detalles Completos</a>
+          <a href="carrito.html" class="btn-blanco" style="font-size: 0.9rem; padding: 8px;">Añadir</a>
+        </dd>
+        
+        <br><hr style="border: 0; border-top: 1px solid var(--color-borde); margin: 15px 0;"><br>
+
+        <dt><strong>4. AirPods Pro 2da Generación</strong></dt>
+        <dd>
+          <img src="img/airpods.jpg" alt="AirPods Pro" width="150" height="100"><br>
+          Audio espacial inmersivo y estuche MagSafe.<br>
+          Precio: $249 <br><br>
+          <a href="producto.html" class="btn-blanco" style="font-size: 0.9rem; padding: 8px;">Ver Detalles Completos</a>
+          <a href="carrito.html" class="btn-blanco" style="font-size: 0.9rem; padding: 8px;">Añadir</a>
+        </dd>
+
+        <br><hr style="border: 0; border-top: 1px solid var(--color-borde); margin: 15px 0;"><br>
+
+        <dt><strong>5. iPhone 15 Pro Titanium</strong></dt>
+        <dd>
+          <img src="img/ip15.jpg" alt="iPhone 15 Pro" width="150" height="100"><br>
+          Diseño aeroespacial, chip A17 Pro.<br>
+          Precio: $1,099 <br><br>
+          <a href="producto.html" class="btn-blanco" style="font-size: 0.9rem; padding: 8px;">Ver Detalles Completos</a>
+          <a href="carrito.html" class="btn-blanco" style="font-size: 0.9rem; padding: 8px;">Añadir</a>
+        </dd>
+
+        <br><hr style="border: 0; border-top: 1px solid var(--color-borde); margin: 15px 0;"><br>
+
+        <dt><strong>6. Monitor Samsung Odyssey G9</strong></dt>
+        <dd>
+          <img src="img/odyssey.jpg" alt="Monitor Curvo G9" width="150" height="100"><br>
+          Pantalla curva ultrawide de 49 pulgadas, 240Hz.<br>
+          Precio: $1,299 <br><br>
+          <a href="producto.html" class="btn-blanco" style="font-size: 0.9rem; padding: 8px;">Ver Detalles Completos</a>
+          <a href="carrito.html" class="btn-blanco" style="font-size: 0.9rem; padding: 8px;">Añadir</a>
+        </dd>
+
+        <br><hr style="border: 0; border-top: 1px solid var(--color-borde); margin: 15px 0;"><br>
+
+        <dt><strong>7. PlayStation 5 Slim</strong></dt>
+        <dd>
+          <img src="img/ps5.jpg" alt="Consola PS5" width="150" height="100"><br>
+          Gráficos 4K, SSD ultrarrápido y control DualSense.<br>
+          Precio: $499 <br><br>
+          <a href="producto.html" class="btn-blanco" style="font-size: 0.9rem; padding: 8px;">Ver Detalles Completos</a>
+          <a href="carrito.html" class="btn-blanco" style="font-size: 0.9rem; padding: 8px;">Añadir</a>
+        </dd>
+
+        <br><hr style="border: 0; border-top: 1px solid var(--color-borde); margin: 15px 0;"><br>
+
+        <dt><strong>8. Silla Herman Miller Embody</strong></dt>
+        <dd>
+          <img src="img/silla.jpg" alt="Silla ergonómica" width="150" height="100"><br>
+          La ergonomía definitiva para largas sesiones.<br>
+          Precio: $1,800 <br><br>
+          <a href="producto.html" class="btn-blanco" style="font-size: 0.9rem; padding: 8px;">Ver Detalles Completos</a>
+          <a href="carrito.html" class="btn-blanco" style="font-size: 0.9rem; padding: 8px;">Añadir</a>
+        </dd>
+      </dl>
+    </section>
+
+  </main>
+
+  <hr>
+  <footer>
+    <address>Av. San Vicente, Santo Domingo Este, RD.</address>
+    <small>© 2026 TechStore Online.</small>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="TechStore Online - Innovación y tecnología en tus manos.">
+  <title>TechStore Online | El Futuro Hoy</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/animaciones.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+</head>
+<body>
+
+  <header>
+  <figure style="margin: 0;">
+    <img src="img/logo-nuevo.png" alt="TechStore" width="150">
+  </figure>
+  
+  <input type="checkbox" id="menu-toggle" style="display:none;">
+  <label for="menu-toggle" class="menu-toggle-label" style="cursor: pointer; font-size: 1.5rem; display: none;"><i class="fa-solid fa-bars"></i></label>
+  
+  <nav aria-label="Navegación principal" class="nav-principal">
+  
+  <nav aria-label="Navegación principal">
+    <menu>
+      <li><a href="index.html"><i class="fa-solid fa-house"></i> Inicio</a></li>
+      <li><a href="productos.html"><i class="fa-solid fa-box-open"></i> Catálogo</a></li>
+      <li><a href="carrito.html"><i class="fa-solid fa-cart-shopping"></i> Mi Carrito</a></li>
+      <li><a href="contacto.html"><i class="fa-solid fa-envelope"></i> Contacto</a></li>
+      <li><a href="acerca.html"><i class="fa-solid fa-building"></i> Quiénes Somos</a></li>
+      <li><a href="#"><i class="fa-solid fa-user"></i> Mi Perfil</a></li> 
+    </menu>
+  </nav>
+
+  <form role="search" action="productos.html" method="get" style="box-shadow: none; padding: 0; background: transparent;">
+    <div style="display: flex; gap: 10px;">
+      <input type="search" id="busqueda-global" name="q" placeholder="Buscar equipo..." required style="width: 180px;">
+      <button type="submit" style="padding: 10px 15px;"><i class="fa-solid fa-magnifying-glass"></i></button>
+    </div>
+  </form>
+</header>
+
+  <main>
+    <section class="banner-promociones">
+  <div class="tarjeta-promo">
+    <i class="fa-solid fa-bolt"></i>
+    <p><strong>Descubre</strong> nuestras ofertas relámpago en laptops.</p>
+  </div>
+  
+  <div class="tarjeta-promo">
+    <i class="fa-solid fa-cart-shopping"></i>
+    <p><strong>Lleva</strong> el mejor equipo con envío gratis hoy.</p>
+  </div>
+
+  <a href="productos.html" class="boton-cool">Ver Ofertas Exclusivas</a>
+</section>
+
+    <hr>
+
+    <section aria-label="Explorar por categorías">
+      <h2>Explora Nuestro Universo</h2>
+      <ul>
+        <li><strong>💻 Laptops:</strong> Máquinas de alto rendimiento.</li>
+        <li><strong>📱 Smartphones:</strong> Conectividad 5G y cámaras pro.</li>
+        <li><strong>🎧 Accesorios:</strong> El complemento perfecto.</li>
+        <li><strong>🎮 Gaming:</strong> Consolas y periféricos.</li>
+      </ul>
+    </section>
+
+    <hr>
+
+    <section aria-label="Top Ventas">
+      <h2>🔥🔥 Top Ventas de la Semana🔥🔥</h2>
+      
+      <fieldset>
+        <legend>Destacado #1</legend>
+        <article>
+          <header><h3>Laptop Asus ROG Strix</h3></header>
+          <img src="img/rog.jpg" alt="Laptop Asus ROG" width="200" height="150">
+          <p>Potencia pura con procesador Ryzen 9 y gráfica RTX 4080.</p>
+          <p>Precio: <strong>$2,100</strong> | Promoción: <mark>Envío Gratis</mark></p>
+          <p>Estado: <strong>En almacén</strong></p>
+          <footer><a href="carrito.html" class="btn-blanco">Añadir al carrito</a></footer>
+        </article>
+      </fieldset>
+
+      <fieldset>
+        <legend>Destacado #2</legend>
+        <article>
+          <header><h3>iPhone 15 Pro Titanium</h3></header>
+          <img src="img/ip15.jpg" alt="iPhone 15 Pro" width="200" height="150">
+          <p>Diseño aeroespacial, chip A17 Pro.</p>
+          <p>Precio: <strong>$1,099</strong> | Descuento: <mark>10% OFF</mark></p>
+          <p>Estado: <strong>Últimas unidades</strong></p>
+          <footer><a href="carrito.html" class="btn-blanco">Añadir al carrito</a></footer>
+        </article>
+      </fieldset>
+
+      <fieldset>
+        <legend>Destacado #3</legend>
+        <article>
+          <header><h3>Monitor Samsung Odyssey G9</h3></header>
+          <img src="img/odyssey.jpg" alt="Monitor Curvo G9" width="200" height="150">
+          <p>Pantalla curva ultrawide de 49 pulgadas, 240Hz.</p>
+          <p>Precio: <del>$1,500</del> <strong>$1,299</strong></p>
+          <p>Estado: <strong>Disponible</strong></p>
+          <footer><a href="carrito.html" class="btn-blanco">Añadir al carrito</a></footer>
+        </article>
+      </fieldset>
+
+      <fieldset>
+        <legend>Destacado #4</legend>
+        <article>
+          <header><h3>Teclado Keychron K2 V2</h3></header>
+          <img src="img/keychron.jpg" alt="Teclado mecánico" width="200" height="150">
+          <p>Mecánico, inalámbrico y compacto al 75%.</p>
+          <p>Precio: <strong>$95</strong></p>
+          <p>Estado: <strong>Disponible</strong></p>
+          <footer><a href="carrito.html" class="btn-blanco">Añadir al carrito</a></footer>
+        </article>
+      </fieldset>
+
+      <fieldset>
+        <legend>Destacado #5</legend>
+        <article>
+          <header><h3>Mouse Logitech MX Master 3S</h3></header>
+          <img src="img/mxmaster.jpg" alt="Mouse ergonómico" width="200" height="150">
+          <p>El rey de la productividad, clics silenciosos.</p>
+          <p>Precio: <strong>$110</strong></p>
+          <p>Estado: <strong>Disponible</strong></p>
+          <footer><a href="carrito.html" class="btn-blanco">Añadir al carrito</a></footer>
+        </article>
+      </fieldset>
+
+      <fieldset>
+        <legend>Destacado #6</legend>
+        <article>
+          <header><h3>PlayStation 5 Slim</h3></header>
+          <img src="img/ps5.jpg" alt="Consola PS5" width="200" height="150">
+          <p>Gráficos 4K, SSD ultrarrápido y control DualSense.</p>
+          <p>Precio: <strong>$499</strong> | Promo: <mark>Juego de regalo</mark></p>
+          <p>Estado: <strong>Disponible</strong></p>
+          <footer><a href="carrito.html" class="btn-blanco">Añadir al carrito</a></footer>
+        </article>
+      </fieldset>
+
+      <fieldset>
+        <legend>Destacado #7</legend>
+        <article>
+          <header><h3>Audífonos Sony WH-1000XM5</h3></header>
+          <img src="img/sony.jpg" alt="Audífonos noise cancelling" width="200" height="150">
+          <p>Cancelación de ruido líder en la industria.</p>
+          <p>Precio: <strong>$348</strong></p>
+          <p>Estado: <strong>Disponible</strong></p>
+          <footer><a href="carrito.html" class="btn-blanco">Añadir al carrito</a></footer>
+        </article>
+      </fieldset>
+
+      <fieldset>
+        <legend>Destacado #8</legend>
+        <article>
+          <h3>Silla Herman Miller Embody</h3>
+          <img src="img/silla.jpg" alt="Silla ergonómica" width="200" height="150">
+          <p>La ergonomía definitiva para largas sesiones.</p>
+          <p>Precio: <strong>$1,800</strong> | Descuento: <mark>15% OFF</mark></p>
+          <p>Estado: <strong>Bajo pedido</strong></p>
+          
+          <a href="carrito.html" class="btn-blanco">Añadir al carrito</a>
+        </article>
+      </fieldset>
+    </section>
+
+    <hr>
+
+    <section aria-labelledby="lab-title">
+      <h2 id="lab-title">🔬 Laboratorio HTML5 Avanzado</h2>
+      <p>Área de pruebas semánticas exigida por las normativas de desarrollo:</p>
+      
+      <ul>
+        <li>Identificador interno del producto principal: <data value="SKU-8992X">Asus ROG Strix</data></li>
+        <li>Nombre del fabricante en árabe: <bdi>أسوس</bdi> (aislado del contexto español).</li>
+        <li>Orden de lectura invertido: <bdo dir="rtl">TechStore Online - Modo Espejo</bdo></li>
+        <li>Fecha de lanzamiento del sitio: <time datetime="2026-06-16">16 de Junio, 2026</time></li>
+        <li>Término técnico con salto de línea opcional: Super<wbr>Computadora<wbr>Cuántica<wbr>Gamer</li>
+        <li>
+          Pronunciación en caracteres asiáticos: 
+          <ruby>
+            電子機器 <rp>(</rp><rt>Electrónicos</rt><rp>)</rp>
+          </ruby>
+        </li>
+      </ul>
+    </section>
+
+  </main>
+
+  <hr>
+  <footer>
+    <address>
+      Oficina Central TechStore:<br>
+      Av. San Vicente, Santo Domingo Este<br>
+      República Dominicana.
+    </address>
+    <small>© 2026 TechStore Online. Todos los derechos reservados.</small>
+  </footer>
+
+</body>
+</html>

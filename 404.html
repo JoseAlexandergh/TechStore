@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página no encontrada | TechStore</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/animaciones.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <style>
+        /* Estilos específicos creativos para el 404 */
+        .error-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 70vh;
+            text-align: center;
+            padding: 20px;
+            background-image: radial-gradient(circle, var(--color-fondo) 0%, #E2E8F0 100%);
+        }
+        
+        .error-container h1 {
+            font-size: 8rem;
+            color: var(--color-primario);
+            text-shadow: 4px 4px 0px var(--color-acento);
+            margin-bottom: 0;
+            animation: escalarLatido 2s infinite alternate;
+        }
+
+        .error-container p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: var(--color-texto);
+        }
+
+        @keyframes escalarLatido {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.05); }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <figure>
+            <img src="img/logo-nuevo.png" alt="TechStore" width="150">
+        </figure>
+    </header>
+
+    <main class="error-container">
+        <h1>4<i class="fa-solid fa-microchip"></i>4</h1>
+        <h2>¡Cortocircuito Inesperado!</h2>
+        <p>La página que buscas ha sido desconectada de la matrix o no existe.</p>
+        
+        <figure style="margin-bottom: 30px;">
+            <img src="img/404-illustration.png" alt="Robot confundido" width="250" onerror="this.style.display='none'">
+        </figure>
+
+        <a href="index.html">
+            <button type="button"><i class="fa-solid fa-house"></i> Reiniciar Sistema (Volver al Inicio)</button>
+        </a>
+    </main>
+
+</body>
+</html>

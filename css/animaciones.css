@@ -1,0 +1,70 @@
+/* 
+   ANIMACIONES, TRANSICIONES Y TRANSFORMACIONES */
+
+/* 1. Transiciones en Tarjetas (Hover) */
+fieldset {
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+fieldset:hover {
+    transform: scale(1.03) translateY(-5px);
+    box-shadow: 0 15px 25px -5px rgba(0, 0, 0, 0.2);
+}
+
+/* 2. Transición en Navegación con Pseudo-elemento */
+header nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--color-acento);
+    transition: width 0.3s ease;
+}
+
+header nav a:hover::after {
+    width: 100%;
+}
+
+/* 3. Transformaciones en Botones */
+button {
+    transition: filter 0.3s ease, transform 0.1s ease;
+}
+
+button:hover {
+    filter: brightness(1.2);
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+/* 4. Animación Keyframes: Aparición Gradual del Banner */
+@keyframes fadeInSlide {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+section[aria-labelledby="titulo-banner"] {
+    animation-name: fadeInSlide;
+    animation-duration: 1.2s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+}
+
+/* 5. Transformaciones extra */
+.rotar-icono:hover {
+    transform: rotate(360deg);
+    transition: transform 0.5s linear;
+}
+
+.sesgar-banner {
+    transform: skew(-2deg);
+}

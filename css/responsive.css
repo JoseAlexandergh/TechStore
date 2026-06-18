@@ -1,0 +1,78 @@
+/* 
+   DISEÑO RESPONSIVO (MEDIA QUERIES)
+    */
+
+/* 1. Móvil (Smartphones) - Hasta 768px */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        padding: 10px;
+        position: static;
+    }
+
+    body {
+        padding-top: 0;
+    }
+
+    .menu-toggle-label {
+        display: block !important; /* Muestra el icono de barras en móvil */
+        align-self: flex-end;
+        margin-top: -35px;
+    }
+
+    header nav menu {
+        display: none; /* Oculta el menú por defecto */
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        margin-top: 15px;
+        width: 100%;
+    }
+
+    #menu-toggle:checked ~ .nav-principal menu {
+        display: flex;
+    }
+
+    section[aria-label="Top Ventas"] {
+        grid-template-columns: 1fr;
+    }
+}
+
+    /* El Grid pasa a 1 sola columna */
+    section[aria-label="Top Ventas"] {
+        grid-template-columns: 1fr;
+    }
+
+    footer {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+    
+    footer address {
+        flex-basis: 100%;
+    }
+
+
+/* 2. Tablet - Desde 769px hasta 1024px */
+@media (min-width: 769px) and (max-width: 1024px) {
+    header nav menu {
+        gap: 15px;
+        font-size: 0.9rem;
+    }
+
+    /* El Grid pasa a 2 columnas */
+    section[aria-label="Top Ventas"] {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* 3. Escritorio - Desde 1025px en adelante */
+@media (min-width: 1025px) {
+    /* El Grid aprovecha el espacio  */
+    
+    /* Efecto parallax suave en fondos opcional */
+    body {
+        background-attachment: fixed;
+    }
+}

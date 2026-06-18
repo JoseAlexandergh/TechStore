@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi Carrito | TechStore</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/animaciones.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+</head>
+<body>
+
+  <header>
+  <h1>El ADN de TechStore</h1>
+  
+  <nav aria-label="Navegación principal">
+    <menu>
+      <li><a href="index.html"><i class="fa-solid fa-house"></i> Inicio</a></li>
+      <li><a href="productos.html"><i class="fa-solid fa-box-open"></i> Catálogo</a></li>
+      <li><a href="carrito.html"><i class="fa-solid fa-cart-shopping"></i> Mi Carrito</a></li>
+      <li><a href="contacto.html"><i class="fa-solid fa-envelope"></i> Contacto</a></li>
+      <li><a href="acerca.html"><i class="fa-solid fa-building"></i> Quiénes Somos</a></li>
+      <li><a href="#"><i class="fa-solid fa-user"></i> Mi Perfil</a></li> 
+    </menu>
+  </nav>
+</header>
+
+  <main>
+    <section aria-label="Resumen de la compra">
+      <h2>Productos en tu bolsa</h2>
+      
+      <table border="1" width="100%" cellpadding="10" cellspacing="0">
+        <thead>
+          <tr>
+            <th scope="col">Descripción</th>
+            <th scope="col">Cant.</th>
+            <th scope="col">Precio Unit.</th>
+            <th scope="col">Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>MacBook Pro 16" M3 Max</td>
+            <td>1</td>
+            <td>$3,499</td>
+            <td>$3,499</td>
+          </tr>
+          <tr>
+            <td>Mouse Logitech MX Master 3S</td>
+            <td>1</td>
+            <td>$110</td>
+            <td>$110</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="3" align="right"><strong>Subtotal:</strong></td>
+            <td>$3,609</td>
+          </tr>
+        </tfoot>
+      </table>
+    </section>
+
+    <br>
+
+    <section aria-label="Estado y Beneficios">
+      <fieldset>
+        <legend>Datos de tu Orden</legend>
+        <p>
+          Progreso del pedido (Paso 2 de 4):<br>
+          <progress value="2" max="4" aria-label="Progreso del pedido">50%</progress>
+        </p>
+        <p>
+          Meta para envío VIP internacional gratis:<br>
+          <meter value="3609" min="0" max="5000" low="1000" high="4000" optimum="5000" aria-label="Medidor de envío gratis"></meter> 
+          <em>(Estás en zona verde, ¡casi lo logras!)</em>
+        </p>
+      </fieldset>
+    </section>
+
+    <br>
+
+    <form action="#" method="get">
+      <button type="submit">Proceder al Pago Seguro</button>
+    </form>
+
+  </main>
+
+  <hr>
+  <footer>
+    <address>Av. San Vicente, Santo Domingo Este, RD.</address>
+  </footer>
+
+</body>
+</html>

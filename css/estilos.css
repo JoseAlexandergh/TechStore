@@ -1,0 +1,268 @@
+/* 
+   1. VARIABLES Y MODO OSCURO
+    */
+:root {
+    --color-primario: #1E3A8A;
+    --color-secundario: #2563EB;
+    --color-acento: #F59E0B;
+    --color-fondo: #F8FAFC;
+    --color-texto: #1F2937;
+    --color-blanco: #FFFFFF;
+    --color-borde: #E2E8F0;
+    --sombra-suave: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+/* Modo Oscuro */
+.dark-theme {
+    --color-fondo: #0F172A;
+    --color-texto: #F8FAFC;
+    --color-blanco: #1E293B;
+    --color-borde: #334155;
+    --sombra-suave: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
+}
+
+/* 
+   2. RESET Y MODELO DE CAJA
+    */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    line-height: 1.6;
+    padding-top: 150px; /* CORRECCIÓN 1: Evita que el header tape el contenido */
+}
+
+/* 
+   3. HEADER Y NAVEGACIÓN
+    */
+body > header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--color-blanco);
+    box-shadow: var(--sombra-suave);
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+}
+
+header nav menu {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+}
+
+header nav a {
+    text-decoration: none;
+    color: var(--color-texto);
+    font-weight: 600;
+    position: relative;
+}
+
+/* Selectores avanzados: Hermanos adyacentes y generales */
+header nav a + a {
+    margin-left: 10px;
+}
+
+header nav a:visited {
+    color: var(--color-primario);
+}
+
+/* 
+   4. GRID DE PRODUCTOS Y TARJETAS
+    */
+/* Seleccionamos la sección de Top Ventas para el Grid */
+section[aria-label="Top Ventas"] {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-gap: 25px;
+    padding: 40px 5%;
+}
+
+/* Tarjeta de Producto */
+fieldset {
+    background-color: var(--color-blanco);
+    border: 1px solid var(--color-borde);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: var(--sombra-suave);
+    position: relative; /* Para posicionar la etiqueta de oferta */
+    overflow: hidden;
+    text-align: center;
+}
+
+fieldset legend {
+    display: none; /* Ocultamos el legend por diseño, mantenemos semántica */
+}
+
+/* Imágenes dentro del artículo */
+fieldset article img {
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+    margin-bottom: 15px;
+}
+
+/* Etiqueta Oferta */
+mark {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: var(--color-acento);
+    color: var(--color-blanco);
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 0.8rem;
+    z-index: 10;
+    pointer-events: none; /* Evita el glitch al pasar el mouse */
+}
+
+/* 
+   5. FORMULARIOS MODERNOS Y PSEUDO-ELEMENTOS
+    */
+form {
+    background: var(--color-blanco);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: var(--sombra-suave);
+}
+
+/* Selectores de atributos */
+input[type="text"],
+input[type="email"],
+input[type="number"],
+input[type="search"],
+textarea,
+select {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid var(--color-borde);
+    border-radius: 6px;
+    font-family: inherit;
+    background-color: transparent;
+    color: var(--color-texto);
+}
+
+/* Pseudo-clases y validación visual */
+input:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--color-secundario);
+    box-shadow: 0 0 5px rgba(37, 99, 235, 0.3);
+}
+
+input:required:invalid {
+    border-left: 4px solid #EF4444; /* Rojo para inválido/requerido */
+}
+
+input:disabled {
+    background-color: #E5E7EB;
+    cursor: not-allowed;
+}
+
+/* Pseudo-elementos */
+::placeholder {
+    color: #9CA3AF;
+    font-style: italic;
+}
+
+::selection {
+    background-color: var(--color-acento);
+    color: var(--color-blanco);
+}
+
+::first-letter {
+    font-weight: bold;
+}
+
+/* 
+   6. TABLA DE CARRITO Y BOTONES
+    */
+table {
+    width: 90%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background-color: var(--color-blanco);
+    box-shadow: var(--sombra-suave);
+    text-align: left;
+}
+
+th, td {
+    padding: 15px;
+    border-bottom: 1px solid var(--color-borde);
+}
+
+th {
+    background-color: var(--color-primario);
+    color: var(--color-blanco);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Filas impares/pares */
+tr:nth-child(even) {
+    background-color: var(--color-fondo);
+}
+
+tr:hover {
+    background-color: #DBEAFE;
+    color: #000;
+}
+
+button, .btn {
+    background-image: linear-gradient(to right, var(--color-primario), var(--color-secundario));
+    color: var(--color-blanco);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+/* 
+   7. FOOTER (FLEXBOX)
+    */
+footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 5%;
+    background-color: var(--color-primario);
+    color: var(--color-blanco);
+    margin-top: 50px;
+}
+
+footer address {
+    flex-basis: 50%;
+    font-style: normal;
+}
+
+.btn-blanco {
+    display: inline-block;
+    background-color: var(--color-blanco);
+    color: var(--color-primario);
+    font-weight: bold;
+    padding: 10px 20px;
+    border: 2px solid var(--color-primario);
+    border-radius: 8px;
+    text-decoration: none;
+    transition: 0.3s;
+    margin-top: 10px;
+}
+
+.btn-blanco:hover {
+    background-color: var(--color-primario);
+    color: var(--color-blanco);
+}
