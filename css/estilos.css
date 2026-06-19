@@ -42,17 +42,18 @@ body {
    3. HEADER Y NAVEGACIÓN
     */
 body > header {
-    position: fixed;
+    position: fixed; 
     top: 0;
     left: 0;
     width: 100%;
-    background-color: var(--color-blanco);
-    box-shadow: var(--sombra-suave);
-    z-index: 1000;
+    background-color: var(--color-primario); 
+    z-index: 9999; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 15px 5%;
+    /* ELIMINA la línea "padding-top: 120px;" que tenías aquí adentro */
 }
 
 header nav menu {
@@ -63,9 +64,20 @@ header nav menu {
 
 header nav a {
     text-decoration: none;
-    color: var(--color-texto);
+    color: var(--color-blanco); /* ¡Cambio clave 1! Esto hace la letra blanca */
     font-weight: 600;
     position: relative;
+}
+
+/* Agregamos esto para los iconos */
+header nav a i {
+    color: var(--color-blanco); 
+    margin-right: 5px;
+}
+
+/* Agregamos el efecto al pasar el mouse */
+header nav a:hover {
+    color: var(--color-acento); 
 }
 
 /* Selectores avanzados: Hermanos adyacentes y generales */
@@ -74,7 +86,7 @@ header nav a + a {
 }
 
 header nav a:visited {
-    color: var(--color-primario);
+    color: var(--color-blanco); /* ¡Cambio clave 2! Antes decía --color-primario y se volvía a esconder al hacerle clic */
 }
 
 /* 
@@ -265,4 +277,132 @@ footer address {
 .btn-blanco:hover {
     background-color: var(--color-primario);
     color: var(--color-blanco);
+}
+
+/* --- ESTILOS PARA EL BANNER "DESCUBRE" --- */
+.banner-promociones {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+    padding: 40px 20px;
+    background-color: var(--color-blanco);
+    border-radius: 12px;
+    margin: 20px auto 40px auto;
+    max-width: 90%;
+    box-shadow: var(--sombra-suave);
+}
+
+.tarjeta-promo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 1.1rem;
+}
+
+.tarjeta-promo i {
+    font-size: 1.5rem;
+    color: var(--color-acento);
+}
+
+.boton-cool {
+    display: inline-block;
+    background-color: var(--color-primario);
+    color: var(--color-blanco);
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+    margin-top: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.boton-cool:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(30, 58, 138, 0.3);
+}
+
+/* ==========================================================================
+   SISTEMA DE OCULTAR/MOSTRAR BANNER (CHECKBOX HACK)
+   ========================================================================== */
+
+/* Contenedor que mantiene todo agrupado */
+.envoltura-banner {
+    position: relative;
+    max-width: 90%;
+    margin: 20px auto 40px auto;
+    text-align: right; /* Alinea el botón a la derecha cuando el banner desaparece */
+}
+
+/* Ajustamos tu banner original para que pueda animarse */
+.envoltura-banner .banner-promociones {
+    margin: 0;
+    width: 100%;
+    /* Transición suave para el efecto de acordeón */
+    transition: max-height 0.5s ease, opacity 0.4s ease, padding 0.4s ease;
+    max-height: 800px; 
+    overflow: hidden;
+    opacity: 1;
+}
+
+/* El botón flotante en la esquina superior derecha */
+.btn-toggle-banner {
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    background-color: var(--color-texto);
+    color: var(--color-blanco);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    box-shadow: var(--sombra-suave);
+    transition: all 0.3s ease;
+    white-space: nowrap; 
+}
+
+.btn-toggle-banner:hover {
+    transform: scale(1.1);
+    background-color: var(--color-acento);
+}
+
+/* =========================================================
+   ESTADO OCULTO: Lo que pasa al hacer clic en el botón
+   ========================================================= */
+
+/* 1. Colapsamos y desaparecemos el banner */
+#toggle-banner:checked ~ .banner-promociones {
+    max-height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    opacity: 0;
+    margin: 0;
+    border: none;
+}
+
+/* 2. Transformamos el circulito en un botón alargado */
+#toggle-banner:checked ~ .btn-toggle-banner {
+    position: relative;
+    top: 0;
+    right: 0;
+    width: auto;
+    height: auto;
+    padding: 10px 20px;
+    border-radius: 20px;
+    background-color: var(--color-primario);
+    margin-bottom: 20px;
+}
+
+/* 3. Le inyectamos texto al botón desde CSS */
+#toggle-banner:checked ~ .btn-toggle-banner::after {
+    content: " Mostrar Ofertas";
+    font-family: 'Poppins', sans-serif;
+    margin-left: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
 }
