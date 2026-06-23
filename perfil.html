@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi Perfil | TechStore Online</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/estilos.css">
+  <link rel="stylesheet" href="css/animaciones.css">
+  <link rel="stylesheet" href="css/responsive.css">
+
+  <style>
+    /* ── Layout principal ── */
+    .perfil-wrapper {
+      display: flex;
+      gap: 30px;
+      padding: 40px 5%;
+      align-items: flex-start;
+    }
+
+    /* ── Sidebar izquierdo ── */
+    .perfil-sidebar {
+      flex: 0 0 260px;
+      position: sticky;
+      top: 20px;
+      background-color: var(--color-blanco);
+      border: 1px solid var(--color-borde);
+      border-radius: 16px;
+      box-shadow: var(--sombra-suave);
+      overflow: hidden;
+    }
+
+    .perfil-avatar-area {
+      background: linear-gradient(135deg, var(--color-primario), var(--color-secundario));
+      padding: 30px 20px;
+      text-align: center;
+      color: white;
+    }
+
+    .perfil-avatar {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      background-color: var(--color-acento);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: white;
+      margin: 0 auto 12px auto;
+      border: 3px solid rgba(255,255,255,0.4);
+    }
+
+    .perfil-avatar-area h2 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .perfil-avatar-area p {
+      font-size: 0.78rem;
+      opacity: 0.85;
+    }
+
+    .perfil-badge {
+      display: inline-block;
+      background-color: var(--color-acento);
+      color: white;
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 2px 10px;
+      border-radius: 20px;
+      margin-top: 8px;
+    }
+
+    /* Nav lateral */
+    .perfil-nav {
+      list-style: none;
+      padding: 10px 0;
+    }
+
+    .perfil-nav li a {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 13px 22px;
+      text-decoration: none;
+      color: var(--color-texto);
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: background 0.2s, color 0.2s;
+      border-left: 3px solid transparent;
+    }
+
+    .perfil-nav li a:hover,
+    .perfil-nav li a.activo {
+      background-color: #EFF6FF;
+      color: var(--color-secundario);
+      border-left-color: var(--color-secundario);
+    }
+
+    .perfil-nav li a i {
+      width: 18px;
+      text-align: center;
+      color: var(--color-secundario);
+    }
+
+    .perfil-nav li.separador {
+      border-top: 1px solid var(--color-borde);
+      margin: 8px 0;
+    }
+
+    .perfil-nav li a.cerrar-sesion {
+      color: #EF4444;
+    }
+    .perfil-nav li a.cerrar-sesion i { color: #EF4444; }
+    .perfil-nav li a.cerrar-sesion:hover {
+      background-color: #FEF2F2;
+      border-left-color: #EF4444;
+      color: #EF4444;
+    }
+
+    /* ── Contenido derecho ── */
+    .perfil-contenido {
+      flex: 1;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+
+    /* Secciones / paneles */
+    .panel {
+      background-color: var(--color-blanco);
+      border: 1px solid var(--color-borde);
+      border-radius: 16px;
+      box-shadow: var(--sombra-suave);
+      overflow: hidden;
+    }
+
+    .panel-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 18px 24px;
+      border-bottom: 1px solid var(--color-borde);
+      background-color: #F8FAFC;
+    }
+
+    .panel-header i {
+      font-size: 1.1rem;
+      color: var(--color-secundario);
+    }
+
+    .panel-header h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--color-primario);
+    }
+
+    .panel-body {
+      padding: 24px;
+    }
+
+    /* Grid de datos personales */
+    .datos-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .dato-item label {
+      display: block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #6B7280;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 4px;
+    }
+
+    .dato-item p {
+      font-size: 0.95rem;
+      color: var(--color-texto);
+      font-weight: 500;
+    }
+
+    .dato-item.ancho-completo {
+      grid-column: 1 / -1;
+    }
+
+    /* Stats rápidas */
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .stat-card {
+      background: linear-gradient(135deg, #EFF6FF, #DBEAFE);
+      border-radius: 12px;
+      padding: 18px;
+      text-align: center;
+      border: 1px solid #BFDBFE;
+    }
+
+    .stat-card .stat-numero {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--color-primario);
+      line-height: 1;
+    }
+
+    .stat-card .stat-label {
+      font-size: 0.78rem;
+      color: #4B5563;
+      margin-top: 6px;
+    }
+
+    /* Tabla de pedidos */
+    .tabla-pedidos {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+    }
+
+    .tabla-pedidos th {
+      background-color: var(--color-primario);
+      color: white;
+      padding: 11px 15px;
+      text-align: left;
+      font-weight: 600;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .tabla-pedidos td {
+      padding: 12px 15px;
+      border-bottom: 1px solid var(--color-borde);
+      color: var(--color-texto);
+    }
+
+    .tabla-pedidos tr:last-child td { border-bottom: none; }
+    .tabla-pedidos tr:nth-child(even) td { background-color: #F8FAFC; }
+    .tabla-pedidos tr:hover td { background-color: #EFF6FF; }
+
+    /* Badges de estado */
+    .badge {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-size: 0.72rem;
+      font-weight: 700;
+    }
+    .badge-entregado  { background: #D1FAE5; color: #065F46; }
+    .badge-enviado    { background: #DBEAFE; color: #1E40AF; }
+    .badge-procesando { background: #FEF3C7; color: #92400E; }
+
+    /* Direcciones */
+    .direccion-card {
+      border: 1px solid var(--color-borde);
+      border-radius: 12px;
+      padding: 16px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .direccion-card.principal {
+      border-color: var(--color-secundario);
+      background-color: #EFF6FF;
+    }
+
+    .direccion-card .dir-info p {
+      font-size: 0.88rem;
+      color: var(--color-texto);
+      line-height: 1.6;
+    }
+
+    .dir-tag {
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--color-secundario);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 4px;
+    }
+
+    .dir-acciones {
+      display: flex;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+
+    .btn-icono {
+      background: none;
+      border: 1px solid var(--color-borde);
+      border-radius: 8px;
+      padding: 6px 10px;
+      cursor: pointer;
+      color: #6B7280;
+      font-size: 0.8rem;
+      transition: all 0.2s;
+      background-image: none;
+      text-shadow: none;
+    }
+
+    .btn-icono:hover {
+      border-color: var(--color-secundario);
+      color: var(--color-secundario);
+    }
+
+    .direcciones-lista {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    /* Métodos de pago */
+    .pago-card {
+      border: 1px solid var(--color-borde);
+      border-radius: 12px;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .pago-card.principal { border-color: var(--color-secundario); background-color: #EFF6FF; }
+
+    .pago-icono {
+      width: 48px;
+      height: 32px;
+      background: linear-gradient(135deg, var(--color-primario), var(--color-secundario));
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    .pago-info p { font-size: 0.88rem; }
+    .pago-info .pago-numero { font-weight: 600; }
+    .pago-info .pago-vence { font-size: 0.78rem; color: #6B7280; }
+
+    .pagos-lista {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    /* Toggle preferencias */
+    .preferencia-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--color-borde);
+    }
+    .preferencia-item:last-child { border-bottom: none; }
+
+    .pref-info p { font-size: 0.9rem; font-weight: 500; }
+    .pref-info small { font-size: 0.78rem; color: #6B7280; }
+
+    /* Switch toggle */
+    .switch {
+      position: relative;
+      width: 44px;
+      height: 24px;
+      flex-shrink: 0;
+    }
+    .switch input { display: none; }
+    .switch-slider {
+      position: absolute;
+      inset: 0;
+      background-color: #D1D5DB;
+      border-radius: 24px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .switch-slider::before {
+      content: '';
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      left: 3px;
+      top: 3px;
+      background: white;
+      border-radius: 50%;
+      transition: 0.3s;
+    }
+    .switch input:checked + .switch-slider { background-color: var(--color-secundario); }
+    .switch input:checked + .switch-slider::before { transform: translateX(20px); }
+
+    /* Botón editar datos */
+    .btn-editar {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: none;
+      border: 2px solid var(--color-secundario);
+      color: var(--color-secundario);
+      padding: 8px 18px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      background-image: none;
+      text-shadow: none;
+      margin-top: 16px;
+    }
+    .btn-editar:hover {
+      background-color: var(--color-secundario);
+      color: white;
+    }
+
+    /* Modal de edición */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 100;
+      align-items: center;
+      justify-content: center;
+    }
+    .modal-overlay.activo { display: flex; }
+
+    .modal {
+      background: var(--color-blanco);
+      border-radius: 16px;
+      width: 90%;
+      max-width: 480px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+      overflow: hidden;
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 24px;
+      background: linear-gradient(135deg, var(--color-primario), var(--color-secundario));
+      color: white;
+    }
+
+    .modal-header h3 { font-size: 1rem; }
+
+    .btn-cerrar-modal {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.2rem;
+      cursor: pointer;
+      padding: 0;
+      background-image: none;
+      text-shadow: none;
+      line-height: 1;
+    }
+
+    .modal-body {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .campo-grupo {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+    .campo-grupo label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #6B7280;
+    }
+    .campo-grupo input {
+      padding: 10px 12px;
+      border: 2px solid var(--color-borde);
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 0.9rem;
+      color: var(--color-texto);
+      background: transparent;
+      width: 100%;
+    }
+    .campo-grupo input:focus {
+      outline: none;
+      border-color: var(--color-secundario);
+    }
+
+    .modal-footer {
+      padding: 16px 24px;
+      border-top: 1px solid var(--color-borde);
+      display: flex;
+      gap: 10px;
+      justify-content: flex-end;
+    }
+
+    .btn-guardar {
+      background-image: linear-gradient(to right, var(--color-primario), var(--color-secundario));
+      color: white;
+      border: none;
+      padding: 10px 22px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+    }
+    .btn-cancelar {
+      background: none;
+      border: 2px solid var(--color-borde);
+      padding: 10px 22px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      background-image: none;
+      color: var(--color-texto);
+    }
+
+    /* Toast notificación */
+    .toast {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: #065F46;
+      color: white;
+      padding: 14px 22px;
+      border-radius: 10px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+      transform: translateY(80px);
+      opacity: 0;
+      transition: all 0.35s ease;
+      z-index: 200;
+    }
+    .toast.visible {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .perfil-wrapper { flex-direction: column; padding: 16px; }
+      .perfil-sidebar { flex: none; width: 100%; position: static; }
+      .datos-grid { grid-template-columns: 1fr; }
+      .stats-row { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <figure style="margin: 0;">
+      <a href="index.html">
+        <img src="img/logo-nuevo.png" alt="TechStore" width="150">
+      </a>
+    </figure>
+
+    <input type="checkbox" id="menu-toggle" style="display:none;">
+    <label for="menu-toggle" class="menu-toggle-label" style="cursor: pointer; font-size: 1.5rem; display: none;"><i class="fa-solid fa-bars"></i></label>
+
+    <nav aria-label="Navegación principal" class="nav-principal">
+      <menu>
+        <li><a href="index.html"><i class="fa-solid fa-house"></i> Inicio</a></li>
+        <li><a href="productos.html"><i class="fa-solid fa-box-open"></i> Catálogo</a></li>
+        <li><a href="carrito.html"><i class="fa-solid fa-cart-shopping"></i> Mi Carrito</a></li>
+        <li><a href="contacto.html"><i class="fa-solid fa-envelope"></i> Contacto</a></li>
+        <li><a href="acerca.html"><i class="fa-solid fa-building"></i> Quiénes Somos</a></li>
+        <li><a href="perfil.html"><i class="fa-solid fa-user"></i> Mi Perfil</a></li>
+      </menu>
+    </nav>
+
+    <form role="search" action="productos.html" method="get" style="box-shadow: none; padding: 0; background: transparent;">
+      <div style="display: flex; gap: 10px;">
+        <input type="search" name="q" placeholder="Buscar equipo..." required style="width: 180px;">
+        <button type="submit" style="padding: 10px 15px;"><i class="fa-solid fa-magnifying-glass"></i></button>
+      </div>
+    </form>
+  </header>
+
+  <main>
+    <div class="perfil-wrapper">
+
+      <!-- ── Sidebar ── -->
+      <aside class="perfil-sidebar">
+        <div class="perfil-avatar-area">
+          <div class="perfil-avatar">JR</div>
+          <h2>Juan Rodríguez</h2>
+          <p>juan.rodriguez@email.com</p>
+          <span class="perfil-badge"><i class="fa-solid fa-star"></i> Cliente Premium</span>
+        </div>
+
+        <ul class="perfil-nav">
+          <li><a href="#resumen" class="activo"><i class="fa-solid fa-chart-pie"></i> Resumen</a></li>
+          <li><a href="#datos"><i class="fa-solid fa-id-card"></i> Datos Personales</a></li>
+          <li><a href="#pedidos"><i class="fa-solid fa-bag-shopping"></i> Mis Pedidos</a></li>
+          <li><a href="#direcciones"><i class="fa-solid fa-location-dot"></i> Direcciones</a></li>
+          <li><a href="#pagos"><i class="fa-solid fa-credit-card"></i> Métodos de Pago</a></li>
+          <li><a href="#preferencias"><i class="fa-solid fa-bell"></i> Preferencias</a></li>
+          <li class="separador"></li>
+          <li><a href="index.html" class="cerrar-sesion"><i class="fa-solid fa-right-from-bracket"></i> Cerrar Sesión</a></li>
+        </ul>
+      </aside>
+
+      <!-- ── Contenido ── -->
+      <div class="perfil-contenido">
+
+        <!-- Resumen -->
+        <section id="resumen" class="panel">
+          <div class="panel-header">
+            <i class="fa-solid fa-chart-pie"></i>
+            <h3>Resumen de Cuenta</h3>
+          </div>
+          <div class="panel-body">
+            <div class="stats-row">
+              <div class="stat-card">
+                <div class="stat-numero">12</div>
+                <div class="stat-label">Pedidos realizados</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-numero">$4,820</div>
+                <div class="stat-label">Total gastado</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-numero">3</div>
+                <div class="stat-label">Productos favoritos</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Datos Personales -->
+        <section id="datos" class="panel">
+          <div class="panel-header">
+            <i class="fa-solid fa-id-card"></i>
+            <h3>Datos Personales</h3>
+          </div>
+          <div class="panel-body">
+            <div class="datos-grid">
+              <div class="dato-item">
+                <label>Nombre</label>
+                <p id="dato-nombre">Juan</p>
+              </div>
+              <div class="dato-item">
+                <label>Apellido</label>
+                <p id="dato-apellido">Rodríguez</p>
+              </div>
+              <div class="dato-item">
+                <label>Correo electrónico</label>
+                <p id="dato-email">juan.rodriguez@email.com</p>
+              </div>
+              <div class="dato-item">
+                <label>Teléfono</label>
+                <p id="dato-telefono">+1 (809) 555-0134</p>
+              </div>
+              <div class="dato-item">
+                <label>Fecha de nacimiento</label>
+                <p>15 de marzo, 1992</p>
+              </div>
+              <div class="dato-item">
+                <label>Miembro desde</label>
+                <p>Enero 2024</p>
+              </div>
+              <div class="dato-item ancho-completo">
+                <label>Documento de identidad</label>
+                <p>•••-•••••••-•</p>
+              </div>
+            </div>
+            <button class="btn-editar" onclick="abrirModal()">
+              <i class="fa-solid fa-pen"></i> Editar información
+            </button>
+          </div>
+        </section>
+
+        <!-- Pedidos -->
+        <section id="pedidos" class="panel">
+          <div class="panel-header">
+            <i class="fa-solid fa-bag-shopping"></i>
+            <h3>Historial de Pedidos</h3>
+          </div>
+          <div class="panel-body" style="padding: 0;">
+            <table class="tabla-pedidos">
+              <thead>
+                <tr>
+                  <th>N° Pedido</th>
+                  <th>Producto</th>
+                  <th>Fecha</th>
+                  <th>Total</th>
+                  <th>Estado</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>#TS-00412</td>
+                  <td>Laptop Asus ROG Strix</td>
+                  <td>10 jun 2026</td>
+                  <td><strong>$2,100</strong></td>
+                  <td><span class="badge badge-entregado">Entregado</span></td>
+                </tr>
+                <tr>
+                  <td>#TS-00389</td>
+                  <td>Mouse Logitech MX Master 3S</td>
+                  <td>28 may 2026</td>
+                  <td><strong>$110</strong></td>
+                  <td><span class="badge badge-entregado">Entregado</span></td>
+                </tr>
+                <tr>
+                  <td>#TS-00401</td>
+                  <td>Audífonos Sony WH-1000XM5</td>
+                  <td>15 jun 2026</td>
+                  <td><strong>$348</strong></td>
+                  <td><span class="badge badge-enviado">En camino</span></td>
+                </tr>
+                <tr>
+                  <td>#TS-00418</td>
+                  <td>Teclado Keychron K2 V2</td>
+                  <td>20 jun 2026</td>
+                  <td><strong>$95</strong></td>
+                  <td><span class="badge badge-procesando">Procesando</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- Direcciones -->
+        <section id="direcciones" class="panel">
+          <div class="panel-header">
+            <i class="fa-solid fa-location-dot"></i>
+            <h3>Mis Direcciones</h3>
+          </div>
+          <div class="panel-body">
+            <div class="direcciones-lista">
+              <div class="direccion-card principal">
+                <div class="dir-info">
+                  <p class="dir-tag"><i class="fa-solid fa-check-circle"></i> Principal</p>
+                  <p><strong>Juan Rodríguez</strong></p>
+                  <p>Av. San Vicente #45, Apto 3B</p>
+                  <p>Santo Domingo Este, DN 10101</p>
+                  <p>República Dominicana</p>
+                </div>
+                <div class="dir-acciones">
+                  <button class="btn-icono" title="Editar"><i class="fa-solid fa-pen"></i></button>
+                </div>
+              </div>
+              <div class="direccion-card">
+                <div class="dir-info">
+                  <p class="dir-tag">Trabajo</p>
+                  <p><strong>Juan Rodríguez</strong></p>
+                  <p>Calle El Conde #122, Oficina 5</p>
+                  <p>Zona Colonial, DN 10210</p>
+                  <p>República Dominicana</p>
+                </div>
+                <div class="dir-acciones">
+                  <button class="btn-icono" title="Editar"><i class="fa-solid fa-pen"></i></button>
+                  <button class="btn-icono" title="Eliminar" style="color:#EF4444;" onclick="mostrarToast('Dirección eliminada')"><i class="fa-solid fa-trash"></i></button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Métodos de pago -->
+        <section id="pagos" class="panel">
+          <div class="panel-header">
+            <i class="fa-solid fa-credit-card"></i>
+            <h3>Métodos de Pago</h3>
+          </div>
+          <div class="panel-body">
+            <div class="pagos-lista">
+              <div class="pago-card principal">
+                <div class="pago-icono"><i class="fa-brands fa-cc-visa"></i></div>
+                <div class="pago-info">
+                  <p class="pago-numero">Visa •••• •••• •••• 4821</p>
+                  <p class="pago-vence">Vence 08/28 · <strong style="color: var(--color-secundario);">Principal</strong></p>
+                </div>
+              </div>
+              <div class="pago-card">
+                <div class="pago-icono"><i class="fa-brands fa-cc-mastercard"></i></div>
+                <div class="pago-info">
+                  <p class="pago-numero">Mastercard •••• •••• •••• 3390</p>
+                  <p class="pago-vence">Vence 03/27</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Preferencias -->
+        <section id="preferencias" class="panel">
+          <div class="panel-header">
+            <i class="fa-solid fa-bell"></i>
+            <h3>Preferencias y Notificaciones</h3>
+          </div>
+          <div class="panel-body">
+            <div class="preferencia-item">
+              <div class="pref-info">
+                <p>Notificaciones por correo</p>
+                <small>Recibe confirmaciones y actualizaciones de pedidos</small>
+              </div>
+              <label class="switch">
+                <input type="checkbox" checked onchange="mostrarToast('Preferencia actualizada')">
+                <span class="switch-slider"></span>
+              </label>
+            </div>
+            <div class="preferencia-item">
+              <div class="pref-info">
+                <p>Ofertas y promociones</p>
+                <small>Entérate de descuentos exclusivos para miembros</small>
+              </div>
+              <label class="switch">
+                <input type="checkbox" checked onchange="mostrarToast('Preferencia actualizada')">
+                <span class="switch-slider"></span>
+              </label>
+            </div>
+            <div class="preferencia-item">
+              <div class="pref-info">
+                <p>Alertas de disponibilidad</p>
+                <small>Aviso cuando un producto en tu lista vuelva a stock</small>
+              </div>
+              <label class="switch">
+                <input type="checkbox" onchange="mostrarToast('Preferencia actualizada')">
+                <span class="switch-slider"></span>
+              </label>
+            </div>
+            <div class="preferencia-item">
+              <div class="pref-info">
+                <p>Modo oscuro</p>
+                <small>Cambia la apariencia del sitio</small>
+              </div>
+              <label class="switch">
+                <input type="checkbox" id="toggle-dark" onchange="toggleDark()">
+                <span class="switch-slider"></span>
+              </label>
+            </div>
+          </div>
+        </section>
+
+      </div><!-- /perfil-contenido -->
+    </div><!-- /perfil-wrapper -->
+  </main>
+
+  <hr>
+  <footer>
+    <address>Av. San Vicente, Santo Domingo Este, RD.</address>
+    <small>© 2026 TechStore Online.</small>
+  </footer>
+
+  <!-- Modal editar datos -->
+  <div class="modal-overlay" id="modal-editar">
+    <div class="modal">
+      <div class="modal-header">
+        <h3><i class="fa-solid fa-pen"></i> Editar Datos Personales</h3>
+        <button class="btn-cerrar-modal" onclick="cerrarModal()"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="modal-body">
+        <div class="campo-grupo">
+          <label>Nombre</label>
+          <input type="text" id="input-nombre" value="Juan">
+        </div>
+        <div class="campo-grupo">
+          <label>Apellido</label>
+          <input type="text" id="input-apellido" value="Rodríguez">
+        </div>
+        <div class="campo-grupo">
+          <label>Correo electrónico</label>
+          <input type="email" id="input-email" value="juan.rodriguez@email.com">
+        </div>
+        <div class="campo-grupo">
+          <label>Teléfono</label>
+          <input type="tel" id="input-telefono" value="+1 (809) 555-0134">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-cancelar" onclick="cerrarModal()">Cancelar</button>
+        <button class="btn-guardar" onclick="guardarDatos()"><i class="fa-solid fa-floppy-disk"></i> Guardar cambios</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast" id="toast">
+    <i class="fa-solid fa-circle-check"></i>
+    <span id="toast-msg">Cambios guardados</span>
+  </div>
+
+  <script>
+    // Scroll activo en nav lateral
+    const secciones = document.querySelectorAll('.perfil-contenido section');
+    const navLinks  = document.querySelectorAll('.perfil-nav a[href^="#"]');
+
+    window.addEventListener('scroll', () => {
+      let actual = '';
+      secciones.forEach(s => {
+        if (window.scrollY >= s.offsetTop - 120) actual = s.id;
+      });
+      navLinks.forEach(a => {
+        a.classList.toggle('activo', a.getAttribute('href') === '#' + actual);
+      });
+    });
+
+    // Modal
+    function abrirModal() {
+      document.getElementById('modal-editar').classList.add('activo');
+    }
+    function cerrarModal() {
+      document.getElementById('modal-editar').classList.remove('activo');
+    }
+
+    // Guardar datos del modal y reflejarlos en la página
+    function guardarDatos() {
+      document.getElementById('dato-nombre').textContent   = document.getElementById('input-nombre').value;
+      document.getElementById('dato-apellido').textContent = document.getElementById('input-apellido').value;
+      document.getElementById('dato-email').textContent    = document.getElementById('input-email').value;
+      document.getElementById('dato-telefono').textContent = document.getElementById('input-telefono').value;
+      cerrarModal();
+      mostrarToast('Datos actualizados correctamente');
+    }
+
+    // Toast
+    function mostrarToast(msg = 'Cambios guardados') {
+      const t = document.getElementById('toast');
+      document.getElementById('toast-msg').textContent = msg;
+      t.classList.add('visible');
+      setTimeout(() => t.classList.remove('visible'), 3000);
+    }
+
+    // Modo oscuro
+    function toggleDark() {
+      document.body.classList.toggle('dark-theme');
+      mostrarToast('Modo oscuro ' + (document.body.classList.contains('dark-theme') ? 'activado' : 'desactivado'));
+    }
+
+    // Cerrar modal con Escape
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') cerrarModal(); });
+
+    // Cerrar modal al hacer clic fuera
+    document.getElementById('modal-editar').addEventListener('click', function(e) {
+      if (e.target === this) cerrarModal();
+    });
+  </script>
+
+</body>
+</html>
