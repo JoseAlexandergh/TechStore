@@ -1,27 +1,26 @@
-/* 
-   DISEÑO RESPONSIVO (MEDIA QUERIES)
-    */
+/* DISEÑO RESPONSIVO (MEDIA QUERIES)
+*/
 
-/* 1. Móvil (Smartphones) - Hasta 768px */
+/* 1. Móvil (Smartphones)*/
 @media (max-width: 768px) {
     header {
         flex-direction: column;
         padding: 10px;
-        position: static;
+        position: relative !important;
     }
 
     body {
-        padding-top: 0;
+        padding-top: 0 !important;
     }
 
     .menu-toggle-label {
-        display: block !important; /* Muestra el icono de barras en móvil */
+        display: block !important; 
         align-self: flex-end;
         margin-top: -35px;
     }
 
     header nav menu {
-        display: none; /* Oculta el menú por defecto */
+        display: none; 
         flex-direction: column;
         align-items: center;
         gap: 10px;
@@ -33,13 +32,22 @@
         display: flex;
     }
 
-    section[aria-label="Top Ventas"] {
-        grid-template-columns: 1fr;
+    /* Catálogo en móvil: apilado verticalmente */
+    main.layout-catalogo {
+        flex-direction: column;
+        padding: 10px;
     }
-}
 
-    /* El Grid pasa a 1 sola columna */
-    section[aria-label="Top Ventas"] {
+    aside[aria-label="Panel de Filtros"] {
+        flex: none;
+        width: 100%;
+        position: static; /* Sin sticky en móvil */
+        max-height: none;
+        overflow-y: visible;
+    }
+
+    section[aria-label="Top Ventas"],
+    section[aria-label="Resultados del catálogo"] {
         grid-template-columns: 1fr;
     }
 
@@ -52,26 +60,23 @@
     footer address {
         flex-basis: 100%;
     }
+}
 
-
-/* 2. Tablet - Desde 769px hasta 1024px */
+/* 2. Tablet*/
 @media (min-width: 769px) and (max-width: 1024px) {
     header nav menu {
         gap: 15px;
         font-size: 0.9rem;
     }
 
-    /* El Grid pasa a 2 columnas */
-    section[aria-label="Top Ventas"] {
+    section[aria-label="Top Ventas"],
+    section[aria-label="Resultados del catálogo"] {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
-/* 3. Escritorio - Desde 1025px en adelante */
+/* 3. Escritorio */
 @media (min-width: 1025px) {
-    /* El Grid aprovecha el espacio  */
-    
-    /* Efecto parallax suave en fondos opcional */
     body {
         background-attachment: fixed;
     }

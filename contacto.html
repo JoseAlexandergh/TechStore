@@ -15,19 +15,33 @@
 <body>
 
   <header>
-  <h1>El ADN de TechStore</h1>
-  
-  <nav aria-label="Navegación principal">
-    <menu>
-      <li><a href="index.html"><i class="fa-solid fa-house"></i> Inicio</a></li>
-      <li><a href="productos.html"><i class="fa-solid fa-box-open"></i> Catálogo</a></li>
-      <li><a href="carrito.html"><i class="fa-solid fa-cart-shopping"></i> Mi Carrito</a></li>
-      <li><a href="contacto.html"><i class="fa-solid fa-envelope"></i> Contacto</a></li>
-      <li><a href="acerca.html"><i class="fa-solid fa-building"></i> Quiénes Somos</a></li>
-      <li><a href="#"><i class="fa-solid fa-user"></i> Mi Perfil</a></li> 
-    </menu>
-  </nav>
-</header>
+    <figure style="margin: 0;">
+      <a href="index.html">
+        <img src="img/logo-nuevo.png" alt="TechStore" width="150">
+      </a>
+    </figure>
+    
+    <input type="checkbox" id="menu-toggle" style="display:none;">
+    <label for="menu-toggle" class="menu-toggle-label" style="cursor: pointer; font-size: 1.5rem; display: none;"><i class="fa-solid fa-bars"></i></label>
+    
+    <nav aria-label="Navegación principal" class="nav-principal">
+      <menu>
+        <li><a href="index.html"><i class="fa-solid fa-house"></i> Inicio</a></li>
+        <li><a href="productos.html"><i class="fa-solid fa-box-open"></i> Catálogo</a></li>
+        <li><a href="carrito.html"><i class="fa-solid fa-cart-shopping"></i> Mi Carrito</a></li>
+        <li><a href="contacto.html"><i class="fa-solid fa-envelope"></i> Contacto</a></li>
+        <li><a href="acerca.html"><i class="fa-solid fa-building"></i> Quiénes Somos</a></li>
+        <li><a href="#"><i class="fa-solid fa-user"></i> Mi Perfil</a></li> 
+      </menu>
+    </nav>
+
+    <form role="search" action="productos.html" method="get" style="box-shadow: none; padding: 0; background: transparent;">
+      <div style="display: flex; gap: 10px;">
+        <input type="search" id="busqueda-global" name="q" placeholder="Buscar equipo..." required style="width: 180px;">
+        <button type="submit" style="padding: 10px 15px;"><i class="fa-solid fa-magnifying-glass"></i></button>
+      </div>
+    </form>
+  </header>
 
   <main>
     <p>Completa el siguiente formulario para crear un ticket de soporte oficial.</p>

@@ -15,21 +15,35 @@
 <body>
 
   <header>
-  <h1>El ADN de TechStore</h1>
-  
-  <nav aria-label="Navegación principal">
-    <menu>
-      <li><a href="index.html"><i class="fa-solid fa-house"></i> Inicio</a></li>
-      <li><a href="productos.html"><i class="fa-solid fa-box-open"></i> Catálogo</a></li>
-      <li><a href="carrito.html"><i class="fa-solid fa-cart-shopping"></i> Mi Carrito</a></li>
-      <li><a href="contacto.html"><i class="fa-solid fa-envelope"></i> Contacto</a></li>
-      <li><a href="acerca.html"><i class="fa-solid fa-building"></i> Quiénes Somos</a></li>
-      <li><a href="#"><i class="fa-solid fa-user"></i> Mi Perfil</a></li> 
-    </menu>
-  </nav>
-</header>
+    <figure style="margin: 0;">
+      <a href="index.html">
+        <img src="img/logo-nuevo.png" alt="TechStore" width="150">
+      </a>
+    </figure>
+    
+    <input type="checkbox" id="menu-toggle" style="display:none;">
+    <label for="menu-toggle" class="menu-toggle-label" style="cursor: pointer; font-size: 1.5rem; display: none;"><i class="fa-solid fa-bars"></i></label>
+    
+    <nav aria-label="Navegación principal" class="nav-principal">
+      <menu>
+        <li><a href="index.html"><i class="fa-solid fa-house"></i> Inicio</a></li>
+        <li><a href="productos.html"><i class="fa-solid fa-box-open"></i> Catálogo</a></li>
+        <li><a href="carrito.html"><i class="fa-solid fa-cart-shopping"></i> Mi Carrito</a></li>
+        <li><a href="contacto.html"><i class="fa-solid fa-envelope"></i> Contacto</a></li>
+        <li><a href="acerca.html"><i class="fa-solid fa-building"></i> Quiénes Somos</a></li>
+        <li><a href="#"><i class="fa-solid fa-user"></i> Mi Perfil</a></li> 
+      </menu>
+    </nav>
 
-  <main>
+    <form role="search" action="productos.html" method="get" style="box-shadow: none; padding: 0; background: transparent;">
+      <div style="display: flex; gap: 10px;">
+        <input type="search" id="busqueda-global" name="q" placeholder="Buscar equipo..." required style="width: 180px;">
+        <button type="submit" style="padding: 10px 15px;"><i class="fa-solid fa-magnifying-glass"></i></button>
+      </div>
+    </form>
+  </header>
+
+  <main class="layout-catalogo">
     <aside aria-label="Panel de Filtros">
       <h2>Filtros Avanzados</h2>
       <form action="#" method="get">
@@ -112,96 +126,96 @@
       </form>
     </aside>
 
-    <hr>
-
     <section aria-label="Resultados del catálogo">
       <h2>Resultados (8)</h2>
       
       <dl>
-        <dt><strong>1. Laptop Asus ROG Strix</strong></dt>
         <dd>
-          <img src="img/rog.jpg" alt="Laptop Asus ROG" width="150" height="100"><br>
+          <strong>1. Laptop Asus ROG Strix</strong>
+          <img src="img/rog.jpg" alt="Laptop Asus ROG" width="150" height="100">
           Potencia pura con procesador Ryzen 9 y gráfica RTX 4080.<br>
-          Precio: $2,100 <br><br>
-          <a href="producto.html" class="btn-blanco" style="font-size: 0.9rem; padding: 8px;">Ver Detalles Completos</a>
-          <a href="carrito.html" class="btn-blanco" style="font-size: 0.9rem; padding: 8px;">Añadir</a>
+          Precio: $2,100
+          <div>
+            <a href="producto.html" class="btn-blanco" style="font-size: 0.9rem; padding: 8px;">Ver Detalles Completos</a>
+            <a href="carrito.html" class="btn-blanco" style="font-size: 0.9rem; padding: 8px;">Añadir</a>
+          </div>
         </dd>
 
-        <br><hr style="border: 0; border-top: 1px solid var(--color-borde); margin: 15px 0;"><br>
-
-        <dt><strong>2. iPhone 15 Pro Titanium</strong></dt>
         <dd>
-          <img src="img/ip15.jpg" alt="iPhone 15 Pro" width="150" height="100"><br>
+          <strong>2. iPhone 15 Pro Titanium</strong>
+          <img src="img/ip15.jpg" alt="iPhone 15 Pro" width="150" height="100">
           Diseño aeroespacial, chip A17 Pro.<br>
-          Precio: $1,099 <br><br>
-          <a href="producto.html" class="btn-blanco" style="font-size: 0.9rem; padding: 8px;">Ver Detalles Completos</a>
-          <a href="carrito.html" class="btn-blanco" style="font-size: 0.9rem; padding: 8px;">Añadir</a>
+          Precio: $1,099
+          <div>
+            <a href="producto.html" class="btn-blanco" style="font-size: 0.9rem; padding: 8px;">Ver Detalles Completos</a>
+            <a href="carrito.html" class="btn-blanco" style="font-size: 0.9rem; padding: 8px;">Añadir</a>
+          </div>
         </dd>
-        
-        <br><hr style="border: 0; border-top: 1px solid var(--color-borde); margin: 15px 0;"><br>
 
-        <dt><strong>3. Monitor Samsung Odyssey G9</strong></dt>
         <dd>
-          <img src="img/odyssey.jpg" alt="Monitor Curvo G9" width="150" height="100"><br>
+          <strong>3. Monitor Samsung Odyssey G9</strong>
+          <img src="img/odyssey.jpg" alt="Monitor Curvo G9" width="150" height="100">
           Pantalla curva ultrawide de 49 pulgadas, 240Hz.<br>
-          Precio: $1,299 <br><br>
-          <a href="producto.html" class="btn-blanco" style="font-size: 0.9rem; padding: 8px;">Ver Detalles Completos</a>
-          <a href="carrito.html" class="btn-blanco" style="font-size: 0.9rem; padding: 8px;">Añadir</a>
+          Precio: $1,299
+          <div>
+            <a href="producto.html" class="btn-blanco" style="font-size: 0.9rem; padding: 8px;">Ver Detalles Completos</a>
+            <a href="carrito.html" class="btn-blanco" style="font-size: 0.9rem; padding: 8px;">Añadir</a>
+          </div>
         </dd>
-        
-        <br><hr style="border: 0; border-top: 1px solid var(--color-borde); margin: 15px 0;"><br>
 
-        <dt><strong>4. Teclado Keychron K2 V2</strong></dt>
         <dd>
-          <img src="img/keychron.jpg" alt="Teclado mecánico" width="150" height="100"><br>
+          <strong>4. Teclado Keychron K2 V2</strong>
+          <img src="img/keychron.jpg" alt="Teclado mecánico" width="150" height="100">
           Mecánico, inalámbrico y compacto al 75%.<br>
-          Precio: $95 <br><br>
-          <a href="producto.html" class="btn-blanco" style="font-size: 0.9rem; padding: 8px;">Ver Detalles Completos</a>
-          <a href="carrito.html" class="btn-blanco" style="font-size: 0.9rem; padding: 8px;">Añadir</a>
+          Precio: $95
+          <div>
+            <a href="producto.html" class="btn-blanco" style="font-size: 0.9rem; padding: 8px;">Ver Detalles Completos</a>
+            <a href="carrito.html" class="btn-blanco" style="font-size: 0.9rem; padding: 8px;">Añadir</a>
+          </div>
         </dd>
 
-        <br><hr style="border: 0; border-top: 1px solid var(--color-borde); margin: 15px 0;"><br>
-
-        <dt><strong>5. Mouse Logitech MX Master 3S</strong></dt>
         <dd>
-          <img src="img/mxmaster.jpg" alt="Mouse ergonómico" width="150" height="100"><br>
+          <strong>5. Mouse Logitech MX Master 3S</strong>
+          <img src="img/mxmaster.jpg" alt="Mouse ergonómico" width="150" height="100">
           El rey de la productividad, clics silenciosos.<br>
-          Precio: $110 <br><br>
-          <a href="producto.html" class="btn-blanco" style="font-size: 0.9rem; padding: 8px;">Ver Detalles Completos</a>
-          <a href="carrito.html" class="btn-blanco" style="font-size: 0.9rem; padding: 8px;">Añadir</a>
+          Precio: $110
+          <div>
+            <a href="producto.html" class="btn-blanco" style="font-size: 0.9rem; padding: 8px;">Ver Detalles Completos</a>
+            <a href="carrito.html" class="btn-blanco" style="font-size: 0.9rem; padding: 8px;">Añadir</a>
+          </div>
         </dd>
 
-        <br><hr style="border: 0; border-top: 1px solid var(--color-borde); margin: 15px 0;"><br>
-
-        <dt><strong>6. PlayStation 5 Slim</strong></dt>
         <dd>
-          <img src="img/ps5.jpg" alt="Consola PS5" width="150" height="100"><br>
+          <strong>6. PlayStation 5 Slim</strong>
+          <img src="img/ps5.jpg" alt="Consola PS5" width="150" height="100">
           Gráficos 4K, SSD ultrarrápido y control DualSense.<br>
-          Precio: $499 <br><br>
-          <a href="producto.html" class="btn-blanco" style="font-size: 0.9rem; padding: 8px;">Ver Detalles Completos</a>
-          <a href="carrito.html" class="btn-blanco" style="font-size: 0.9rem; padding: 8px;">Añadir</a>
+          Precio: $499
+          <div>
+            <a href="producto.html" class="btn-blanco" style="font-size: 0.9rem; padding: 8px;">Ver Detalles Completos</a>
+            <a href="carrito.html" class="btn-blanco" style="font-size: 0.9rem; padding: 8px;">Añadir</a>
+          </div>
         </dd>
 
-        <br><hr style="border: 0; border-top: 1px solid var(--color-borde); margin: 15px 0;"><br>
-
-        <dt><strong>7. Audífonos Sony WH-1000XM5</strong></dt>
         <dd>
-          <img src="img/sony.jpg" alt="Audífonos noise cancelling" width="150" height="100"><br>
+          <strong>7. Audífonos Sony WH-1000XM5</strong>
+          <img src="img/sony.jpg" alt="Audífonos noise cancelling" width="150" height="100">
           Cancelación de ruido líder en la industria.<br>
-          Precio: $348 <br><br>
-          <a href="producto.html" class="btn-blanco" style="font-size: 0.9rem; padding: 8px;">Ver Detalles Completos</a>
-          <a href="carrito.html" class="btn-blanco" style="font-size: 0.9rem; padding: 8px;">Añadir</a>
+          Precio: $348
+          <div>
+            <a href="producto.html" class="btn-blanco" style="font-size: 0.9rem; padding: 8px;">Ver Detalles Completos</a>
+            <a href="carrito.html" class="btn-blanco" style="font-size: 0.9rem; padding: 8px;">Añadir</a>
+          </div>
         </dd>
 
-        <br><hr style="border: 0; border-top: 1px solid var(--color-borde); margin: 15px 0;"><br>
-
-        <dt><strong>8. Silla Herman Miller Embody</strong></dt>
         <dd>
-          <img src="img/silla.jpg" alt="Silla ergonómica" width="150" height="100"><br>
+          <strong>8. Silla Herman Miller Embody</strong>
+          <img src="img/silla.jpg" alt="Silla ergonómica" width="150" height="100">
           La ergonomía definitiva para largas sesiones.<br>
-          Precio: $1,800 <br><br>
-          <a href="producto.html" class="btn-blanco" style="font-size: 0.9rem; padding: 8px;">Ver Detalles Completos</a>
-          <a href="carrito.html" class="btn-blanco" style="font-size: 0.9rem; padding: 8px;">Añadir</a>
+          Precio: $1,800
+          <div>
+            <a href="producto.html" class="btn-blanco" style="font-size: 0.9rem; padding: 8px;">Ver Detalles Completos</a>
+            <a href="carrito.html" class="btn-blanco" style="font-size: 0.9rem; padding: 8px;">Añadir</a>
+          </div>
         </dd>
       </dl>
     </section>
