@@ -1,5 +1,5 @@
 /* 
-   1. VARIABLES Y MODO OSCURO
+   VARIABLES Y MODO OSCURO
     */
 :root {
     --color-primario: #1E3A8A;
@@ -22,7 +22,7 @@
 }
 
 /* 
-   2. RESET Y MODELO DE CAJA
+   RESET Y MODELO DE CAJA
     */
 * {
     margin: 0;
@@ -39,7 +39,7 @@ body {
 }
 
 /* 
-   3. HEADER Y NAVEGACIÓN
+   HEADER Y NAVEGACIÓN
     */
 body > header {
     position: relative; 
@@ -78,7 +78,7 @@ header nav a:hover {
     color: var(--color-acento); 
 }
 
-/* Selectores avanzados: Hermanos adyacentes y generales */
+
 header nav a + a {
     margin-left: 10px;
 }
@@ -88,7 +88,7 @@ header nav a:visited {
 }
 
 /* 
-   4. GRID DE PRODUCTOS Y TARJETAS
+   GRID DE PRODUCTOS Y TARJETAS
     */
 
 section[aria-label="Top Ventas"] {
@@ -99,18 +99,18 @@ section[aria-label="Top Ventas"] {
 }
 
 
-/* El h2 de Top Ventas ocupa toda la fila del grid para no quedar como tarjeta */
+
 section[aria-label="Top Ventas"] > h2 {
     grid-column: 1 / -1;
     margin-bottom: 10px;
 }
 
-/* El banner sin envoltura: centrado y con margen */
+
 .banner-promociones {
     margin: 20px auto 40px auto;
     max-width: 90%;
 }
-/* Tarjeta de Producto */
+
 fieldset {
     background-color: var(--color-blanco);
     border: 1px solid var(--color-borde);
@@ -127,7 +127,7 @@ fieldset legend {
     display: none;
 }
 
-/* article como columna flex para anclar el botón al fondo */
+
 fieldset article {
     display: flex;
     flex-direction: column;
@@ -143,7 +143,7 @@ fieldset article > a.btn-blanco {
     justify-content: center;
 }
 
-/* Imágenes dentro del artículo */
+
 fieldset article img {
     width: 100%;
     height: 200px;
@@ -151,7 +151,7 @@ fieldset article img {
     margin-bottom: 15px;
 }
 
-/* Etiqueta Oferta: debajo del título, no encima */
+
 mark {
     display: inline-block;
     position: static;
@@ -166,7 +166,7 @@ mark {
 }
 
 /* 
-   5. FORMULARIOS MODERNOS Y PSEUDO-ELEMENTOS
+   FORMULARIOS MODERNOS Y PSEUDO-ELEMENTOS
     */
 form {
     background: var(--color-blanco);
@@ -191,7 +191,7 @@ select {
     color: var(--color-texto);
 }
 
-/* Pseudo-clases y validación visual */
+
 input:focus,
 textarea:focus {
     outline: none;
@@ -224,7 +224,7 @@ input:disabled {
 }
 
 /* 
-   6. TABLA DE CARRITO Y BOTONES
+   TABLA DE CARRITO Y BOTONES
     */
 table {
     width: 90%;
@@ -247,7 +247,7 @@ th {
     letter-spacing: 1px;
 }
 
-/* Filas impares/pares */
+
 tr:nth-child(even) {
     background-color: var(--color-fondo);
 }
@@ -269,7 +269,7 @@ button, .btn {
 }
 
 /* 
-   7. FOOTER (FLEXBOX)
+   FOOTER (FLEXBOX)
     */
 footer {
     display: flex;
@@ -349,27 +349,6 @@ footer address {
     box-shadow: 0 5px 15px rgba(30, 58, 138, 0.3);
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 a[target="_blank"] {
     position: relative;
 }
@@ -417,7 +396,7 @@ section[aria-label="Top Ventas"] {
 
 .elemento-estatico { position: static; }
 
-/* Layout flex SOLO para la página de catálogo */
+
 main.layout-catalogo {
     display: flex;
     gap: 30px;
@@ -425,17 +404,17 @@ main.layout-catalogo {
     align-items: flex-start;
 }
 
-/* El aside queda fijo mientras scrolleas, dentro del flujo del main */
+
 aside[aria-label="Panel de Filtros"] {
     flex: 0 0 280px;
     position: sticky;
     top: 20px;
     max-height: calc(100vh - 40px);
     overflow-y: auto;
-    align-self: flex-start; /* CRÍTICO: sin esto sticky no funciona en flex */
+    align-self: flex-start; 
 }
 
-/* El form del aside no debe tener el estilo de tarjeta global */
+
 aside[aria-label="Panel de Filtros"] form {
     background: transparent;
     padding: 0;
@@ -443,7 +422,7 @@ aside[aria-label="Panel de Filtros"] form {
     box-shadow: none;
 }
 
-/* Los fieldsets del aside tampoco deben verse como tarjetas de producto */
+
 aside[aria-label="Panel de Filtros"] fieldset {
     background-color: transparent;
     border: 1px solid var(--color-borde);
@@ -462,31 +441,31 @@ aside[aria-label="Panel de Filtros"] fieldset legend {
     font-size: 0.9rem;
 }
 
-/* La sección de resultados ocupa el resto del espacio */
+
 section[aria-label="Resultados del catálogo"] {
     flex: 1;
-    min-width: 0; /* Evita que desborde el contenedor flex */
+    min-width: 0; 
 }
 
-/* El hr separador entre aside y section no debe aparecer en el layout */
+
 main.layout-catalogo > hr {
     display: none;
 }
 
-/* Los productos en dl: cada item (dt+dd) como tarjeta individual */
+
 dl {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
 }
 
-/* Cada par dt+dd forma una tarjeta visual */
+
 dl > dt {
-    grid-column: 1 / -1; /* Opcional: puedes quitarlo si prefieres dt+dd juntos */
-    display: none; /* El nombre ya aparece dentro del dd como texto */
+    grid-column: 1 / -1; 
+    display: none; 
 }
 
-/* Cada dd es la tarjeta del producto */
+
 dl > dd {
     background-color: var(--color-blanco);
     border: 1px solid var(--color-borde);
@@ -506,7 +485,7 @@ dl > dd img {
     object-fit: contain;
 }
 
-/* Ocultar los hr decorativos dentro del dl ya que las tarjetas tienen bordes */
+
 dl > br,
 dl > hr {
     display: none;

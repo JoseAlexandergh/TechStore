@@ -44,189 +44,32 @@
   </header>
 
   <main class="layout-catalogo">
-    <aside aria-label="Panel de Filtros">
-      <h2>Filtros Avanzados</h2>
-      <form action="#" method="get">
-        
-        <fieldset>
-          <legend>Filtrar por Rango de Precio</legend>
-          <div style="display: flex; gap: 10px; align-items: center;">
-            <div style="width: 50%;">
-              <label for="precio-min">Desde ($):</label>
-              <input type="number" id="precio-min" name="min" min="0" step="50" placeholder="0">
-            </div>
-            <div style="width: 50%;">
-              <label for="precio-max">Hasta ($):</label>
-              <input type="number" id="precio-max" name="max" max="5000" step="50" placeholder="5000">
-            </div>
-          </div>
-        </fieldset>
+  <aside aria-label="Panel de Filtros">
+    <fieldset>
+      <legend>Filtrar por Marca</legend>
+      <select id="filtro-marca">
+        <option value="">Todas</option>
+        <option value="apple">Apple</option>
+        <option value="asus">Asus</option>
+      </select>
+    </fieldset>
+    <fieldset>
+      <legend>Precio Máximo</legend>
+      <input type="number" id="filtro-precio" placeholder="Ej: 2000">
+    </fieldset>
+  </aside>
 
-        <br>
-
-        <fieldset>
-          <legend>Filtrar por Marca</legend>
-          <input type="checkbox" id="marca-apple" name="marca" value="apple">
-          <label for="marca-apple">Apple</label><br>
-          
-          <input type="checkbox" id="marca-asus" name="marca" value="asus">
-          <label for="marca-asus">Asus</label><br>
-          
-          <input type="checkbox" id="marca-samsung" name="marca" value="samsung">
-          <label for="marca-samsung">Samsung</label><br>
-          
-          <input type="checkbox" id="marca-logitech" name="marca" value="logitech">
-          <label for="marca-logitech">Logitech</label>
-        </fieldset>
-
-        <br>
-
-        <fieldset>
-          <legend>Filtrar por Categoría</legend>
-          <input type="radio" id="cat-laptop" name="categoria" value="laptops">
-          <label for="cat-laptop">Laptops</label><br>
-          
-          <input type="radio" id="cat-perifericos" name="categoria" value="perifericos">
-          <label for="cat-perifericos">Periféricos</label><br>
-          
-          <input type="radio" id="cat-audio" name="categoria" value="audio">
-          <label for="cat-audio">Audio y Sonido</label>
-        </fieldset>
-
-        <br>
-
-        <fieldset>
-          <legend>Color del Dispositivo</legend>
-          <label for="color-dispositivo">Seleccione:</label>
-          <select id="color-dispositivo" name="color">
-            <option value="">Cualquiera</option>
-            <option value="negro">Negro Mate</option>
-            <option value="blanco">Blanco Hielo</option>
-            <option value="plata">Plata Espacial</option>
-          </select>
-        </fieldset>
-
-        <br>
-
-        <fieldset>
-          <legend>Búsqueda Específica</legend>
-          <label for="buscador-datalist">Modelo exacto:</label>
-          <input list="modelos" id="buscador-datalist" name="modelo" placeholder="Empieza a escribir...">
-          <datalist id="modelos">
-            <option value="MacBook Pro M3"></option>
-            <option value="Asus ROG Zephyrus"></option>
-            <option value="Logitech G Pro X"></option>
-            <option value="AirPods Pro 2"></option>
-          </datalist>
-        </fieldset>
-
-        <br>
-        <button type="submit">Aplicar Filtros</button>
-        <button type="reset">Borrar Selección</button>
-      </form>
-    </aside>
-
-    <section aria-label="Resultados del catálogo">
-      <h2>Resultados (8)</h2>
-      
-      <dl>
-        <dd>
-          <strong>1. Laptop Asus ROG Strix</strong>
-          <img src="img/rog.jpg" alt="Laptop Asus ROG" width="150" height="100">
-          Potencia pura con procesador Ryzen 9 y gráfica RTX 4080.<br>
-          Precio: $2,100
-          <div>
-            <a href="producto.html" class="btn-blanco" style="font-size: 0.9rem; padding: 8px;">Ver Detalles Completos</a>
-            <a href="carrito.html" class="btn-blanco" style="font-size: 0.9rem; padding: 8px;">Añadir</a>
-          </div>
-        </dd>
-
-        <dd>
-          <strong>2. iPhone 15 Pro Titanium</strong>
-          <img src="img/ip15.jpg" alt="iPhone 15 Pro" width="150" height="100">
-          Diseño aeroespacial, chip A17 Pro.<br>
-          Precio: $1,099
-          <div>
-            <a href="producto.html" class="btn-blanco" style="font-size: 0.9rem; padding: 8px;">Ver Detalles Completos</a>
-            <a href="carrito.html" class="btn-blanco" style="font-size: 0.9rem; padding: 8px;">Añadir</a>
-          </div>
-        </dd>
-
-        <dd>
-          <strong>3. Monitor Samsung Odyssey G9</strong>
-          <img src="img/odyssey.jpg" alt="Monitor Curvo G9" width="150" height="100">
-          Pantalla curva ultrawide de 49 pulgadas, 240Hz.<br>
-          Precio: $1,299
-          <div>
-            <a href="producto.html" class="btn-blanco" style="font-size: 0.9rem; padding: 8px;">Ver Detalles Completos</a>
-            <a href="carrito.html" class="btn-blanco" style="font-size: 0.9rem; padding: 8px;">Añadir</a>
-          </div>
-        </dd>
-
-        <dd>
-          <strong>4. Teclado Keychron K2 V2</strong>
-          <img src="img/keychron.jpg" alt="Teclado mecánico" width="150" height="100">
-          Mecánico, inalámbrico y compacto al 75%.<br>
-          Precio: $95
-          <div>
-            <a href="producto.html" class="btn-blanco" style="font-size: 0.9rem; padding: 8px;">Ver Detalles Completos</a>
-            <a href="carrito.html" class="btn-blanco" style="font-size: 0.9rem; padding: 8px;">Añadir</a>
-          </div>
-        </dd>
-
-        <dd>
-          <strong>5. Mouse Logitech MX Master 3S</strong>
-          <img src="img/mxmaster.jpg" alt="Mouse ergonómico" width="150" height="100">
-          El rey de la productividad, clics silenciosos.<br>
-          Precio: $110
-          <div>
-            <a href="producto.html" class="btn-blanco" style="font-size: 0.9rem; padding: 8px;">Ver Detalles Completos</a>
-            <a href="carrito.html" class="btn-blanco" style="font-size: 0.9rem; padding: 8px;">Añadir</a>
-          </div>
-        </dd>
-
-        <dd>
-          <strong>6. PlayStation 5 Slim</strong>
-          <img src="img/ps5.jpg" alt="Consola PS5" width="150" height="100">
-          Gráficos 4K, SSD ultrarrápido y control DualSense.<br>
-          Precio: $499
-          <div>
-            <a href="producto.html" class="btn-blanco" style="font-size: 0.9rem; padding: 8px;">Ver Detalles Completos</a>
-            <a href="carrito.html" class="btn-blanco" style="font-size: 0.9rem; padding: 8px;">Añadir</a>
-          </div>
-        </dd>
-
-        <dd>
-          <strong>7. Audífonos Sony WH-1000XM5</strong>
-          <img src="img/sony.jpg" alt="Audífonos noise cancelling" width="150" height="100">
-          Cancelación de ruido líder en la industria.<br>
-          Precio: $348
-          <div>
-            <a href="producto.html" class="btn-blanco" style="font-size: 0.9rem; padding: 8px;">Ver Detalles Completos</a>
-            <a href="carrito.html" class="btn-blanco" style="font-size: 0.9rem; padding: 8px;">Añadir</a>
-          </div>
-        </dd>
-
-        <dd>
-          <strong>8. Silla Herman Miller Embody</strong>
-          <img src="img/silla.jpg" alt="Silla ergonómica" width="150" height="100">
-          La ergonomía definitiva para largas sesiones.<br>
-          Precio: $1,800
-          <div>
-            <a href="producto.html" class="btn-blanco" style="font-size: 0.9rem; padding: 8px;">Ver Detalles Completos</a>
-            <a href="carrito.html" class="btn-blanco" style="font-size: 0.9rem; padding: 8px;">Añadir</a>
-          </div>
-        </dd>
-      </dl>
-    </section>
-
-  </main>
+  <section aria-label="Resultados del catálogo">
+    <h2 id="titulo-contador">Resultados</h2>
+    <dl id="contenedor-productos"></dl>
+  </section>
+</main>
 
   <hr>
   <footer>
     <address>Av. San Vicente, Santo Domingo Este, RD.</address>
     <small>© 2026 TechStore Online.</small>
   </footer>
-
+<script type="module" src="js/catalogo.js"></script>
 </body>
 </html>

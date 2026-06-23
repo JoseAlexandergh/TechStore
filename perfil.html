@@ -899,61 +899,6 @@
     <span id="toast-msg">Cambios guardados</span>
   </div>
 
-  <script>
-    // Scroll activo en nav lateral
-    const secciones = document.querySelectorAll('.perfil-contenido section');
-    const navLinks  = document.querySelectorAll('.perfil-nav a[href^="#"]');
-
-    window.addEventListener('scroll', () => {
-      let actual = '';
-      secciones.forEach(s => {
-        if (window.scrollY >= s.offsetTop - 120) actual = s.id;
-      });
-      navLinks.forEach(a => {
-        a.classList.toggle('activo', a.getAttribute('href') === '#' + actual);
-      });
-    });
-
-    // Modal
-    function abrirModal() {
-      document.getElementById('modal-editar').classList.add('activo');
-    }
-    function cerrarModal() {
-      document.getElementById('modal-editar').classList.remove('activo');
-    }
-
-    // Guardar datos del modal y reflejarlos en la página
-    function guardarDatos() {
-      document.getElementById('dato-nombre').textContent   = document.getElementById('input-nombre').value;
-      document.getElementById('dato-apellido').textContent = document.getElementById('input-apellido').value;
-      document.getElementById('dato-email').textContent    = document.getElementById('input-email').value;
-      document.getElementById('dato-telefono').textContent = document.getElementById('input-telefono').value;
-      cerrarModal();
-      mostrarToast('Datos actualizados correctamente');
-    }
-
-    // Toast
-    function mostrarToast(msg = 'Cambios guardados') {
-      const t = document.getElementById('toast');
-      document.getElementById('toast-msg').textContent = msg;
-      t.classList.add('visible');
-      setTimeout(() => t.classList.remove('visible'), 3000);
-    }
-
-    // Modo oscuro
-    function toggleDark() {
-      document.body.classList.toggle('dark-theme');
-      mostrarToast('Modo oscuro ' + (document.body.classList.contains('dark-theme') ? 'activado' : 'desactivado'));
-    }
-
-    // Cerrar modal con Escape
-    document.addEventListener('keydown', e => { if (e.key === 'Escape') cerrarModal(); });
-
-    // Cerrar modal al hacer clic fuera
-    document.getElementById('modal-editar').addEventListener('click', function(e) {
-      if (e.target === this) cerrarModal();
-    });
-  </script>
-
+<script type="module" src="js/perfil.js"></script>
 </body>
 </html>

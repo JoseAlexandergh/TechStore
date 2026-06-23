@@ -46,26 +46,16 @@
   <main>
     <p>Completa el siguiente formulario para crear un ticket de soporte oficial.</p>
 
-    <form action="#" method="post" enctype="multipart/form-data">
+    
+      <form id="formulario-contacto" action="#" method="post" enctype="multipart/form-data">
       
       <fieldset>
         <legend>Tus Credenciales</legend>
-        
-        <label for="nombre-cliente">Nombre completo:</label><br>
-        <input type="text" id="nombre-cliente" name="nombre" placeholder="Juan Pérez" required autocomplete="name"><br><br>
+        </fieldset>
 
-        <label for="email-cliente">Correo electrónico:</label><br>
-        <input type="email" id="email-cliente" name="email" placeholder="juan@ejemplo.com" required autocomplete="email"><br><br>
-
-        <label for="clave-seguridad">Crea un PIN temporal de seguridad:</label><br>
-        <input type="password" id="clave-seguridad" name="pin" minlength="4" maxlength="6" required><br><br>
-
-        <label for="tel-cliente">Teléfono móvil:</label><br>
-        <input type="tel" id="tel-cliente" name="telefono" placeholder="809-555-5555" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"><br><br>
-
-        <label for="edad-cliente">Edad:</label><br>
-        <input type="number" id="edad-cliente" name="edad" min="18" max="100" step="1">
-      </fieldset>
+      <button type="submit">Enviar Ticket Oficial</button>
+      <button type="reset">Limpiar Formulario</button>
+</form>
 
       <br>
 
@@ -107,7 +97,7 @@
         <input type="hidden" id="origen-tracker" name="origen" value="formulario_web_2026">
         
         <label for="ticket-id">ID de Ticket Generado Automáticamente:</label><br>
-        <input type="text" id="ticket-id" name="ticket" value="TCK-99882" readonly disabled>
+        <input type="text" id="ticket-id" name="ticket" value="TCK-99882" readonly>
       </fieldset>
 
       <br>
@@ -123,6 +113,7 @@
     <address>Av. San Vicente, Santo Domingo Este, RD.</address>
     <small>© 2026 TechStore Online.</small>
   </footer>
-
+<script type="module" src="js/contacto.js"></script>
+<script type="module" src="js/main.js"></script>
 </body>
 </html>
