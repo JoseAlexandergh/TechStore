@@ -629,11 +629,11 @@
           <div class="panel-body">
             <div class="stats-row">
               <div class="stat-card">
-                <div class="stat-numero">12</div>
+                <div class="stat-numero" id="stat-pedidos">0</div>
                 <div class="stat-label">Pedidos realizados</div>
               </div>
               <div class="stat-card">
-                <div class="stat-numero">$4,820</div>
+                <div class="stat-numero" id="stat-total">$0</div>
                 <div class="stat-label">Total gastado</div>
               </div>
               <div class="stat-card">
@@ -704,34 +704,11 @@
                   <th>Estado</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr>
-                  <td>#TS-00412</td>
-                  <td>Laptop Asus ROG Strix</td>
-                  <td>10 jun 2026</td>
-                  <td><strong>$2,100</strong></td>
-                  <td><span class="badge badge-entregado">Entregado</span></td>
-                </tr>
-                <tr>
-                  <td>#TS-00389</td>
-                  <td>Mouse Logitech MX Master 3S</td>
-                  <td>28 may 2026</td>
-                  <td><strong>$110</strong></td>
-                  <td><span class="badge badge-entregado">Entregado</span></td>
-                </tr>
-                <tr>
-                  <td>#TS-00401</td>
-                  <td>Audífonos Sony WH-1000XM5</td>
-                  <td>15 jun 2026</td>
-                  <td><strong>$348</strong></td>
-                  <td><span class="badge badge-enviado">En camino</span></td>
-                </tr>
-                <tr>
-                  <td>#TS-00418</td>
-                  <td>Teclado Keychron K2 V2</td>
-                  <td>20 jun 2026</td>
-                  <td><strong>$95</strong></td>
-                  <td><span class="badge badge-procesando">Procesando</span></td>
+              <tbody id="tabla-pedidos-body">
+                <tr id="fila-sin-pedidos">
+                  <td colspan="5" style="text-align:center;padding:30px;color:#9CA3AF;font-style:italic;">
+                    Aún no has realizado ningún pedido. ¡Explora el catálogo!
+                  </td>
                 </tr>
               </tbody>
             </table>
@@ -899,6 +876,81 @@
     <span id="toast-msg">Cambios guardados</span>
   </div>
 
-<script type="module" src="js/perfil.js"></script>
+  
+
+<script type="module">
+  import { inyectarBadge, actualizarBadgeCarrito } from './js/modules/ui.js';
+  import { obtenerDeLocalStorage } from './js/modules/storage.js';
+
+  document.addEventListener('DOMContentLoaded', () => {
+    inyectarBadge();
+
+    // Cargar historial de pedidos desde localStorage
+    const ultimaOrden = obtenerDeLocalStorage('techstore_ultimo_orden');
+    const tbody = document.getElementById('tabla-pedidos-body');
+    const statPedidos = document.getElementById('stat-pedidos');
+    const statTotal   = document.getElementById('stat-total');
+
+    if (ultimaOrden && tbody) {
+      const filaSin = document.getElementById('fila-sin-pedidos');
+      if (filaSin) filaSin.remove();
+
+      const estados = ['badge-entregado','badge-enviado','badge-procesando'];
+      const etiquetas = ['Entregado','En camino','Procesando'];
+      const idx = Math.floor(Math.random() * estados.length);
+
+      const fila = document.createElement('tr');
+      fila.innerHTML = `
+        <td>${ultimaOrden.numero}</td>
+        <td>${ultimaOrden.items.map(i => i.producto.nombre).join(', ')}</td>
+        <td>${ultimaOrden.fecha}</td>
+        <td><strong>$${ultimaOrden.total.toLocaleString('es-DO', {maximumFractionDigits:2})}</strong></td>
+        <td><span class="badge ${estados[idx]}">${etiquetas[idx]}</span></td>
+      `;
+      tbody.appendChild(fila);
+
+      if (statPedidos) statPedidos.textContent = '1';
+      if (statTotal)   statTotal.textContent   = '$' + ultimaOrden.total.toLocaleString('es-DO', {maximumFractionDigits:2});
+    }
+
+    // Modal editar
+    window.abrirModal  = () => document.getElementById('modal-editar')?.classList.add('activo');
+    window.cerrarModal = () => document.getElementById('modal-editar')?.classList.remove('activo');
+    window.guardarDatos = () => {
+      document.getElementById('dato-nombre').textContent   = document.getElementById('input-nombre').value;
+      document.getElementById('dato-apellido').textContent = document.getElementById('input-apellido').value;
+      document.getElementById('dato-email').textContent    = document.getElementById('input-email').value;
+      document.getElementById('dato-telefono').textContent = document.getElementById('input-telefono').value;
+      window.cerrarModal();
+      mostrarToastPerfil('Datos actualizados correctamente');
+    };
+    window.toggleDark = () => {
+      document.body.classList.toggle('dark-theme');
+    };
+
+    function mostrarToastPerfil(msg) {
+      const t = document.getElementById('toast');
+      if (!t) return;
+      document.getElementById('toast-msg').textContent = msg;
+      t.classList.add('visible');
+      setTimeout(() => t.classList.remove('visible'), 3000);
+    }
+    window.mostrarToast = mostrarToastPerfil;
+
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') window.cerrarModal?.(); });
+    document.getElementById('modal-editar')?.addEventListener('click', function(e) {
+      if (e.target === this) window.cerrarModal?.();
+    });
+
+    // Scroll activo
+    const secciones = document.querySelectorAll('.perfil-contenido section');
+    const navLinks  = document.querySelectorAll('.perfil-nav a[href^="#"]');
+    window.addEventListener('scroll', () => {
+      let actual = '';
+      secciones.forEach(s => { if (window.scrollY >= s.offsetTop - 120) actual = s.id; });
+      navLinks.forEach(a => a.classList.toggle('activo', a.getAttribute('href') === '#' + actual));
+    });
+  });
+</script>
 </body>
 </html>

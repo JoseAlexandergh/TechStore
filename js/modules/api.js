@@ -1,10 +1,11 @@
+// api.js — Fetch de productos desde JSON local
 export const obtenerProductosDesdeAPI = async () => {
   try {
-    const response = await fetch('./data/productos.json');
-    if (!response.ok) throw new Error('Error al conectar con la base de datos');
+    const response = await fetch('./js/data/productos.json');
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
     return await response.json();
   } catch (error) {
-    console.error("Fallo en la carga de datos:", error);
+    console.error('[API]', error);
     return [];
   }
 };

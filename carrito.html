@@ -44,50 +44,75 @@
   </header>
 
   <main>
-    <section aria-label="Resumen de la compra">
-      <h2>Productos en tu bolsa</h2>
-      
-      <table border="1" width="100%" cellpadding="10" cellspacing="0">
+    <!-- Carrito vacío -->
+    <section id="carrito-vacio" aria-label="Carrito vacío" style="display:none;text-align:center;padding:60px 20px;">
+      <i class="fa-solid fa-cart-shopping" style="font-size:4rem;color:#D1D5DB;margin-bottom:20px;"></i>
+      <h2 style="color:#6B7280;">Tu carrito está vacío</h2>
+      <p style="color:#9CA3AF;margin-bottom:24px;">¡Agrega productos desde el catálogo!</p>
+      <a href="productos.html" class="btn-blanco" style="display:inline-block;">Ver Catálogo</a>
+    </section>
+
+    <!-- Tabla dinámica -->
+    <section id="carrito-tabla" aria-label="Resumen de la compra">
+      <h2 style="padding:20px 5% 0;">🛍️ Productos en tu bolsa</h2>
+
+      <table id="tabla-carrito" style="width:90%;margin:20px auto;">
         <thead>
           <tr>
-            <th scope="col">Descripción</th>
-            <th scope="col">Cant.</th>
+            <th scope="col">Producto</th>
+            <th scope="col">Cantidad</th>
             <th scope="col">Precio Unit.</th>
             <th scope="col">Total</th>
+            <th scope="col">Acción</th>
           </tr>
         </thead>
-  <tbody id="carrito-body">
-    </tbody>
-  <tfoot id="carrito-footer">
-    </tfoot>
-</table>
+        <tbody></tbody>
+      </table>
 
-<script type="module" src="js/carrito-manager.js"></script>
+      <!-- Resumen totales -->
+      <div style="width:90%;margin:0 auto 20px;display:flex;justify-content:flex-end;">
+        <div style="background:var(--color-blanco);border:1px solid var(--color-borde);border-radius:12px;padding:20px;min-width:280px;">
+          <div style="display:flex;justify-content:space-between;margin-bottom:8px;">
+            <span>Subtotal:</span><span id="resumen-subtotal">$0</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;margin-bottom:8px;color:#6B7280;font-size:0.9rem;">
+            <span>ITBIS (18%):</span><span id="resumen-impuestos">$0</span>
+          </div>
+          <hr style="margin:10px 0;">
+          <div style="display:flex;justify-content:space-between;font-weight:700;font-size:1.1rem;">
+            <span>Total:</span><span id="resumen-total" style="color:var(--color-primario);">$0</span>
+          </div>
+        </div>
+      </div>
 
-    </section>
-
-    <br>
-
-    <section aria-label="Estado y Beneficios">
-      <fieldset>
+      <!-- Progreso y meter -->
+      <fieldset style="width:90%;margin:0 auto 20px;">
         <legend>Datos de tu Orden</legend>
         <p>
-          Progreso del pedido (Paso 2 de 4):<br>
-          <progress value="2" max="4" aria-label="Progreso del pedido">50%</progress>
+          Progreso del pedido:<br>
+          <progress value="1" max="4" aria-label="Progreso del pedido">25%</progress>
         </p>
         <p>
-          Meta para envío VIP internacional gratis:<br>
-          <meter value="3609" min="0" max="5000" low="1000" high="4000" optimum="5000" aria-label="Medidor de envío gratis"></meter> 
-          <em>(Estás en zona verde, ¡casi lo logras!)</em>
+          Meta para envío VIP gratis ($5,000):<br>
+          <meter value="0" min="0" max="5000" low="1000" high="4000" optimum="5000"
+                 aria-label="Medidor de envío gratis"></meter>
+          <em id="meter-texto">(Agrega más productos para calificar)</em>
         </p>
       </fieldset>
+
+      <!-- Botones acción -->
+      <div style="width:90%;margin:0 auto 40px;display:flex;gap:12px;flex-wrap:wrap;">
+        <button id="btn-vaciar-carrito"
+                style="background:#EF4444;background-image:none;padding:12px 24px;">
+          <i class="fa-solid fa-trash"></i> Vaciar carrito
+        </button>
+        <form action="#" method="get" style="box-shadow:none;padding:0;background:transparent;">
+          <button type="submit" style="padding:12px 24px;">
+            <i class="fa-solid fa-lock"></i> Proceder al Pago Seguro
+          </button>
+        </form>
+      </div>
     </section>
-
-    <br>
-
-    <form action="#" method="get">
-      <button type="submit">Proceder al Pago Seguro</button>
-    </form>
 
   </main>
 
@@ -95,6 +120,8 @@
   <footer>
     <address>Av. San Vicente, Santo Domingo Este, RD.</address>
   </footer>
-<script type="module" src="js/carrito-app.js"></script>
+
+
 </body>
 </html>
+<script type="module" src="js/carrito-manager.js"></script>
