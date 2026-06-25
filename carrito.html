@@ -66,7 +66,8 @@
             <th scope="col">Acción</th>
           </tr>
         </thead>
-        <tbody></tbody>
+        <tbody id="carrito-body"></tbody>
+        <tfoot id="carrito-footer"></tfoot>
       </table>
 
       <!-- Resumen totales -->
@@ -90,7 +91,7 @@
         <legend>Datos de tu Orden</legend>
         <p>
           Progreso del pedido:<br>
-          <progress value="1" max="4" aria-label="Progreso del pedido">25%</progress>
+          <progress value="0" max="4" aria-label="Progreso del pedido">25%</progress>
         </p>
         <p>
           Meta para envío VIP gratis ($5,000):<br>
@@ -106,7 +107,7 @@
                 style="background:#EF4444;background-image:none;padding:12px 24px;">
           <i class="fa-solid fa-trash"></i> Vaciar carrito
         </button>
-        <form action="#" method="get" style="box-shadow:none;padding:0;background:transparent;">
+        <form id="form-pago" action="#" method="get" style="box-shadow:none;padding:0;background:transparent;">
           <button type="submit" style="padding:12px 24px;">
             <i class="fa-solid fa-lock"></i> Proceder al Pago Seguro
           </button>
@@ -122,6 +123,6 @@
   </footer>
 
 
+<script src="js/techstore.js"></script>
 </body>
 </html>
-<script type="module" src="js/carrito-manager.js"></script>

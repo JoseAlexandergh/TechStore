@@ -3,14 +3,130 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MacBook Pro 16" M3 Max | TechStore</title>
+  <title>Producto | TechStore</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="css/estilos.css">
-    <link rel="stylesheet" href="css/animaciones.css">
-    <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/estilos.css">
+  <link rel="stylesheet" href="css/animaciones.css">
+  <link rel="stylesheet" href="css/responsive.css">
 
+  <style>
+    .producto-detalle {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 5%;
+    }
+    .producto-detalle-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+    @media (max-width: 768px) {
+      .producto-detalle-grid { grid-template-columns: 1fr; }
+    }
+    .producto-imagen-principal {
+      width: 100%;
+      max-height: 320px;
+      object-fit: contain;
+      border-radius: 12px;
+      background: var(--color-blanco);
+      border: 1px solid var(--color-borde);
+      padding: 20px;
+    }
+    .producto-info h1 {
+      font-size: 1.5rem;
+      color: var(--color-primario);
+      margin-bottom: 8px;
+    }
+    .producto-precio {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--color-primario);
+      margin: 12px 0;
+    }
+    .producto-precio-original {
+      text-decoration: line-through;
+      color: #9CA3AF;
+      font-size: 1rem;
+      font-weight: 400;
+      margin-left: 8px;
+    }
+    .producto-disponibilidad {
+      font-size: 0.9rem;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 20px;
+      display: inline-block;
+      margin-bottom: 16px;
+    }
+    .disponible  { background: #D1FAE5; color: #065F46; }
+    .agotado     { background: #FEE2E2; color: #991B1B; }
+    .btn-anadir-detalle {
+      width: 100%;
+      padding: 14px;
+      font-size: 1rem;
+      border-radius: 10px;
+      margin-top: 16px;
+      cursor: pointer;
+      font-family: Poppins, sans-serif;
+      font-weight: 700;
+      border: none;
+      background: linear-gradient(to right, #1E3A8A, #2563EB);
+      color: white;
+    }
+    .btn-anadir-detalle:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+    .btn-volver {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--color-secundario);
+      text-decoration: none;
+      font-weight: 600;
+      margin-bottom: 24px;
+      font-size: 0.9rem;
+    }
+    .producto-specs {
+      margin-top: 32px;
+    }
+    .producto-specs h2 {
+      font-size: 1.1rem;
+      color: var(--color-primario);
+      margin-bottom: 12px;
+      border-bottom: 2px solid var(--color-borde);
+      padding-bottom: 8px;
+    }
+    .specs-tabla {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .specs-tabla td {
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--color-borde);
+      font-size: 0.9rem;
+    }
+    .specs-tabla td:first-child {
+      font-weight: 600;
+      color: #6B7280;
+      width: 40%;
+      background: #F8FAFC;
+    }
+    #producto-cargando {
+      text-align: center;
+      padding: 80px 20px;
+      color: #6B7280;
+    }
+    #producto-error {
+      display: none;
+      text-align: center;
+      padding: 60px 20px;
+      color: #EF4444;
+    }
+  </style>
 </head>
 <body>
 
@@ -20,10 +136,12 @@
         <img src="img/logo-nuevo.png" alt="TechStore" width="150">
       </a>
     </figure>
-    
+
     <input type="checkbox" id="menu-toggle" style="display:none;">
-    <label for="menu-toggle" class="menu-toggle-label" style="cursor: pointer; font-size: 1.5rem; display: none;"><i class="fa-solid fa-bars"></i></label>
-    
+    <label for="menu-toggle" class="menu-toggle-label" style="cursor:pointer;font-size:1.5rem;display:none;">
+      <i class="fa-solid fa-bars"></i>
+    </label>
+
     <nav aria-label="Navegación principal" class="nav-principal">
       <menu>
         <li><a href="index.html"><i class="fa-solid fa-house"></i> Inicio</a></li>
@@ -31,106 +149,102 @@
         <li><a href="carrito.html"><i class="fa-solid fa-cart-shopping"></i> Mi Carrito</a></li>
         <li><a href="contacto.html"><i class="fa-solid fa-envelope"></i> Contacto</a></li>
         <li><a href="acerca.html"><i class="fa-solid fa-building"></i> Quiénes Somos</a></li>
-        <li><a href="#"><i class="fa-solid fa-user"></i> Mi Perfil</a></li> 
+        <li><a href="perfil.html"><i class="fa-solid fa-user"></i> Mi Perfil</a></li>
       </menu>
     </nav>
 
-    <form role="search" action="productos.html" method="get" style="box-shadow: none; padding: 0; background: transparent;">
-      <div style="display: flex; gap: 10px;">
-        <input type="search" id="busqueda-global" name="q" placeholder="Buscar equipo..." required style="width: 180px;">
-        <button type="submit" style="padding: 10px 15px;"><i class="fa-solid fa-magnifying-glass"></i></button>
+    <form role="search" action="productos.html" method="get"
+          style="box-shadow:none;padding:0;background:transparent;">
+      <div style="display:flex;gap:10px;">
+        <input type="search" name="q" placeholder="Buscar equipo..." required style="width:180px;">
+        <button type="submit" style="padding:10px 15px;">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
       </div>
     </form>
   </header>
 
   <main>
-    <article>
-      <header>
-        <h1>Apple MacBook Pro 16" (Chip M3 Max)</h1>
-        <p>Referencia de producto: #APL-M3MAX-16</p>
-      </header>
+    <div class="producto-detalle">
 
-      <section aria-label="Galería Multimedia">
-        <h2>Galería del Producto</h2>
-        
-        <figure>
-          <picture>
-            <source media="(max-width: 600px)" srcset="img/mac-mobile.jpg">
-            <source media="(min-width: 601px)" srcset="img/mac-desktop.jpg">
-            <img src="img/mac-desktop.jpg" alt="Vista frontal y lateral de la MacBook Pro 16 pulgadas" width="500" height="300">
-          </picture>
-          <figcaption>Diseño en color Negro Espacial.</figcaption>
-        </figure>
+      <!-- Botón volver -->
+      <a href="javascript:history.back()" class="btn-volver">
+        <i class="fa-solid fa-arrow-left"></i> Volver
+      </a>
 
-        <h3>Review en Video</h3>
-        <video controls width="500" height="280" aria-label="Video análisis de la MacBook Pro">
-          <source src="video/macbook-review.mp4" type="video/mp4">
-          <source src="video/macbook-review.webm" type="video/webm">
-          Tu navegador no soporta el formato de video.
-        </video>
+      <!-- Estado de carga -->
+      <div id="producto-cargando">
+        <i class="fa-solid fa-spinner fa-spin" style="font-size:2rem;color:#2563EB;"></i>
+        <p style="margin-top:12px;">Cargando producto...</p>
+      </div>
 
-        <h3>Podcast: ¿Vale la pena en 2026?</h3>
-        <audio controls aria-label="Podcast sobre Apple Silicon">
-          <source src="audio/podcast-tech.mp3" type="audio/mpeg">
-          Tu navegador no soporta el reproductor de audio.
-        </audio>
-      </section>
+      <!-- Error -->
+      <div id="producto-error">
+        <i class="fa-solid fa-circle-xmark" style="font-size:3rem;"></i>
+        <h2>Producto no encontrado</h2>
+        <p>No se pudo cargar la información de este producto.</p>
+        <a href="productos.html" class="btn-blanco" style="display:inline-block;margin-top:16px;">
+          Ver Catálogo
+        </a>
+      </div>
 
-      <hr>
+      <!-- Contenido del producto (oculto hasta cargar) -->
+      <div id="producto-contenido" style="display:none;">
+        <div class="producto-detalle-grid">
 
-      <section aria-label="Información Técnica">
-        <h2>Especificaciones Técnicas</h2>
-        <table border="1" cellpadding="8" cellspacing="0">
-          <caption>Ficha técnica oficial del fabricante</caption>
-          <colgroup>
-            <col span="1" style="background-color: #f0f0f0; width: 30%;">
-            <col span="1" style="width: 70%;">
-          </colgroup>
-          <thead>
-            <tr>
-              <th scope="col">Componente</th>
-              <th scope="col">Especificación</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong>Procesador (CPU)</strong></td>
-              <td>Apple M3 Max (16 núcleos)</td>
-            </tr>
-            <tr>
-              <td><strong>Gráficos (GPU)</strong></td>
-              <td>GPU integrada de 40 núcleos con Ray Tracing</td>
-            </tr>
-            <tr>
-              <td><strong>Memoria Unificada</strong></td>
-              <td>48 GB LPDDR5</td>
-            </tr>
-            <tr>
-              <td><strong>Almacenamiento</strong></td>
-              <td>1 TB SSD NVMe ultrarrápido</td>
-            </tr>
-            <tr>
-              <td><strong>Pantalla</strong></td>
-              <td>Liquid Retina XDR, 120Hz ProMotion</td>
-            </tr>
-          </tbody>
-          <tfoot>
-            <tr>
-              <td colspan="2" align="center"><em>Soporta hasta 4 monitores externos simultáneos.</em></td>
-            </tr>
-          </tfoot>
-        </table>
-        
-        <br>
-        <button onclick="window.agregarProductoAlCarrito()">Añadir a mi carrito ($3,499)</button>
-      </section>
-    </article>
+          <!-- Imagen -->
+          <div>
+            <img id="prod-imagen" src="" alt="" class="producto-imagen-principal"
+                 onerror="this.src='img/placeholder.jpg'">
+          </div>
+
+          <!-- Info -->
+          <div class="producto-info">
+            <span id="prod-categoria"
+                  style="font-size:0.75rem;font-weight:700;color:#2563EB;text-transform:uppercase;
+                         letter-spacing:1px;"></span>
+            <h1 id="prod-nombre"></h1>
+            <p id="prod-sku" style="font-size:0.8rem;color:#9CA3AF;margin-bottom:4px;"></p>
+
+            <div>
+              <span id="prod-precio" class="producto-precio"></span>
+              <span id="prod-precio-original" class="producto-precio-original"></span>
+            </div>
+
+            <span id="prod-disponibilidad" class="producto-disponibilidad"></span>
+
+            <p id="prod-descripcion" style="color:#6B7280;font-size:0.9rem;line-height:1.7;"></p>
+
+            <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:8px;font-size:0.85rem;">
+              <span id="prod-envio" style="color:#065F46;font-weight:600;"></span>
+              <span id="prod-marca"  style="color:#6B7280;"></span>
+              <span id="prod-color"  style="color:#6B7280;"></span>
+            </div>
+
+            <button id="btn-anadir-detalle" class="btn-anadir-detalle">
+              <i class="fa-solid fa-cart-plus"></i> Añadir al carrito
+            </button>
+          </div>
+        </div>
+
+        <!-- Especificaciones técnicas -->
+        <div class="producto-specs">
+          <h2><i class="fa-solid fa-microchip"></i> Especificaciones Técnicas</h2>
+          <table class="specs-tabla">
+            <tbody id="prod-specs"></tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
   </main>
 
   <hr>
   <footer>
+    <address>Av. San Vicente, Santo Domingo Este, RD.</address>
     <small>© 2026 TechStore Online.</small>
   </footer>
-<script type="module" src="js/main.js"></script>
+
+  <script src="js/techstore.js"></script>
 </body>
 </html>
