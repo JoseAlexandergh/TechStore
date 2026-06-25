@@ -155,7 +155,7 @@
     "envioGratis": true,
     "stock": 5,
     "color": "plata",
-    "imagen": "img/rog.jpg",
+    "imagen": "img/rog1.jpg",
     "destacado": false,
     "especificaciones": { "cpu": "Ryzen 7", "grafica": "RTX 4060", "peso": "1.6 kg" }
   },
@@ -171,7 +171,7 @@
     "envioGratis": false,
     "stock": 15,
     "color": "negro",
-    "imagen": "img/mxmaster.jpg",
+    "imagen": "img/mxmaster1.jpg",
     "destacado": false,
     "especificaciones": { "transductor": "Grafeno 50mm", "microfono": "Blue VO!CE", "peso": "345g" }
   },
@@ -187,7 +187,7 @@
     "envioGratis": true,
     "stock": 30,
     "color": "blanco",
-    "imagen": "img/sony.jpg",
+    "imagen": "img/airpods.jpg",
     "destacado": false,
     "especificaciones": { "chip": "Apple H2", "estuche": "MagSafe USB-C", "resistencia": "IP54" }
   },
@@ -203,7 +203,7 @@
     "envioGratis": true,
     "stock": 8,
     "color": "negro",
-    "imagen": "img/ip15.jpg",
+    "imagen": "img/samsung1.jpg",
     "destacado": false,
     "especificaciones": { "cpu": "Snapdragon 8 Gen 3", "camara": "200MP", "extra": "S-Pen integrado" }
   },
@@ -219,7 +219,7 @@
     "envioGratis": false,
     "stock": 22,
     "color": "negro",
-    "imagen": "img/odyssey.jpg",
+    "imagen": "img/memory.jpg",
     "destacado": false,
     "especificaciones": { "interfaz": "PCIe Gen 4.0", "lectura": "7450 MB/s", "formato": "M.2 2280" }
   },
@@ -235,7 +235,7 @@
     "envioGratis": true,
     "stock": 2,
     "color": "plata",
-    "imagen": "img/mac-desktop.jpg",
+    "imagen": "img/applescreen.jpg",
     "destacado": false,
     "especificaciones": { "pantalla": "27 5K Retina", "camara": "12MP Ultra gran angular", "audio": "6 bocinas" }
   }
